@@ -1,96 +1,162 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diemasmhndr // portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Boot Screen -->
+  <div class="boot-screen" id="bootScreen">
+    <div class="boot-content">
+      <div class="boot-logo">DIEMASMHNDR<span class="boot-cursor">_</span></div>
+      <div class="boot-lines" id="bootLines"></div>
+    </div>
+  </div>
 
   <!-- CRT scanline overlay -->
   <div class="scanlines"></div>
   <div class="noise"></div>
 
-  <!-- Desktop -->
-  <div class="desktop">
+  <!-- Main -->
+  <div class="desktop" id="mainDesktop">
 
-    <!-- Header -->
-    <header class="header">
-      <div class="header-title">
-        <span class="glitch" data-text="DIEMASMHNDR">DIEMASMHNDR</span>
-        <span class="header-sub">// programmer · trader · bot builder // system</span>
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-dot online"></span>
+        <span class="topbar-name">DIEMASMHNDR</span>
+        <span class="topbar-sep">//</span>
+        <span class="topbar-status">AVAILABLE FOR WORK</span>
       </div>
-      <div class="header-version">v.2026</div>
+      <div class="topbar-right">
+        <span class="topbar-item">SYS:OK</span>
+        <span class="topbar-sep">|</span>
+        <span class="topbar-item">IDN</span>
+        <span class="topbar-sep">|</span>
+        <span class="clock" id="clock">00:00</span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">&gt; whoami</div>
+        <h1 class="hero-title">
+          <span class="glitch" data-text="Muhammad">Muhammad</span><br/>
+          <span class="glitch hero-title-2" data-text="Diemas Mahendra">Diemas Mahendra</span>
+        </h1>
+        <div class="hero-roles">
+          <span class="role-badge">Programmer</span>
+          <span class="role-sep">Â·</span>
+          <span class="role-badge">Automation Builder</span>
+          <span class="role-sep">Â·</span>
+          <span class="role-badge">Trader</span>
+        </div>
+        <p class="hero-desc">
+          I build bots, trading systems, and automation tools<br/>
+          to simplify complex workflows. If it's repetitive â€” I automate it.
+        </p>
+        <div class="hero-cta">
+          <a href="mailto:rebel@btcidr.dev" class="btn-primary">â–¸ HIRE ME</a>
+          <button class="btn-secondary" onclick="openWindow('projects')">VIEW PROJECTS</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="terminal-card">
+          <div class="tc-bar">
+            <span class="tc-dot r"></span>
+            <span class="tc-dot y"></span>
+            <span class="tc-dot g"></span>
+            <span class="tc-title">diemas@vps:~</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-line"><span class="tc-prompt">$</span> status --check</div>
+            <div class="tc-line out"><span class="tc-ok">[OK]</span> Systems running</div>
+            <div class="tc-line out"><span class="tc-ok">[OK]</span> Bots active: 3</div>
+            <div class="tc-line out"><span class="tc-ok">[OK]</span> Trades monitored</div>
+            <div class="tc-line"><span class="tc-prompt">$</span> projects --count</div>
+            <div class="tc-line out"><span class="tc-ok">[OK]</span> 10+ projects built</div>
+            <div class="tc-line"><span class="tc-prompt">$</span> availability</div>
+            <div class="tc-line out"><span class="tc-ok">[OK]</span> Open for commissions</div>
+            <div class="tc-line"><span class="tc-prompt">$</span> <span class="tc-blink">_</span></div>
+          </div>
+        </div>
+      </div>
     </header>
 
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Projects Built</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">Bot Uptime</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <span class="stat-num">3+</span>
+        <span class="stat-label">Years Coding</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <span class="stat-num">âˆž</span>
+        <span class="stat-label">Automation Loops</span>
+      </div>
+    </div>
+
     <!-- ASCII Divider -->
-    <div class="ascii-divider">─────────────────────────────────────────────────────────────────</div>
+    <div class="ascii-divider">â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</div>
 
-    <!-- Intro block -->
-    <section class="intro">
-      <p>
-        <span class="cursor-blink">▶</span> <strong>Muhammad Diemas Mahendra</strong> — Programmer &amp; Automation Builder<br />
-        <span class="highlight">Indonesia</span>-based.
-      </p>
-      <p class="mt">
-        I build <span class="tag">bots</span>, <span class="tag">trading systems</span>, and <span class="tag">automation tools</span><br />
-        to simplify complex workflows.
-      </p>
-      <p class="mt">
-        Working across <span class="tag">crypto</span>, <span class="tag">stocks</span>, and <span class="tag">backend systems</span> —<br />
-        always focused on speed and efficiency.<br />
-        If there's a repetitive task, I'll automate it.
-      </p>
-      <p class="mt">
-        Available for commissions: bots, scripts, and web-based systems.<br />
-        contact: <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a>
-      </p>
-    </section>
-
-    <!-- ASCII Divider -->
-    <div class="ascii-divider">─────────────────────────────────────────────────────────────────</div>
-
-    <!-- Desktop Icons (clickable windows) -->
+    <!-- Desktop Icons -->
     <nav class="icon-grid">
       <button class="icon-btn" onclick="openWindow('about')">
-        <span class="icon-emoji">📄</span>
+        <span class="icon-glyph">ðŸ“„</span>
         <span class="icon-label">about.txt</span>
+        <span class="icon-desc">who i am</span>
       </button>
       <button class="icon-btn" onclick="openWindow('projects')">
-        <span class="icon-emoji">⬛</span>
+        <span class="icon-glyph">â¬›</span>
         <span class="icon-label">projects.exe</span>
+        <span class="icon-desc">10 projects</span>
       </button>
       <button class="icon-btn" onclick="openWindow('skills')">
-        <span class="icon-emoji">⚙</span>
+        <span class="icon-glyph">âš™</span>
         <span class="icon-label">skills.sys</span>
-      </button>
-      <button class="icon-btn" onclick="openWindow('videos')">
-        <span class="icon-emoji">▶</span>
-        <span class="icon-label">videos.sys</span>
+        <span class="icon-desc">stack & tools</span>
       </button>
       <button class="icon-btn" onclick="openWindow('links')">
-        <span class="icon-emoji">🔗</span>
+        <span class="icon-glyph">ðŸ”—</span>
         <span class="icon-label">links.url</span>
+        <span class="icon-desc">find me</span>
       </button>
       <button class="icon-btn" onclick="openWindow('contact')">
-        <span class="icon-emoji">✉</span>
+        <span class="icon-glyph">âœ‰</span>
         <span class="icon-label">contact.msg</span>
+        <span class="icon-desc">commission me</span>
       </button>
     </nav>
 
     <!-- ASCII Divider -->
-    <div class="ascii-divider">─────────────────────────────────────────────────────────────────</div>
+    <div class="ascii-divider">â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</div>
 
-    <!-- Footer tagline -->
+    <!-- Footer -->
     <footer class="footer">
       <span class="tagline">automate everything. trade the rest.</span>
       <span class="footer-links">
-        <a href="https://github.com/diemasmhndr" target="_blank" class="link">GH GitHub</a> ·
-        <a href="https://instagram.com/diemasmhndr" target="_blank" class="link">IG Instagram</a> ·
-        <a href="mailto:rebel@btcidr.dev" class="link">✉ rebel@btcidr.dev</a>
+        <a href="https://instagram.com/diemasmhndr" target="_blank" class="link">IG Instagram</a>
+        <span class="footer-sep">Â·</span>
+        <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a>
       </span>
-      <div class="clock" id="clock">00:00</div>
+      <span class="footer-copy">Â© 2026 diemasmhndr</span>
     </footer>
 
   </div><!-- /desktop -->
@@ -100,31 +166,30 @@
   <!-- ABOUT window -->
   <div class="window" id="win-about">
     <div class="win-titlebar">
-      <span class="win-title">▸ ABOUT.TXT — diemasmhndr _</span>
-      <button class="win-close" onclick="closeWindow('about')">✕</button>
+      <span class="win-title">â–¸ ABOUT.TXT â€” diemasmhndr _</span>
+      <button class="win-close" onclick="closeWindow('about')">âœ•</button>
     </div>
     <div class="win-body">
       <pre class="ascii-art">
- ██████╗ ██╗███████╗███╗   ███╗ █████╗ ███████╗
- ██╔══██╗██║██╔════╝████╗ ████║██╔══██╗██╔════╝
- ██║  ██║██║█████╗  ██╔████╔██║███████║███████╗
- ██║  ██║██║██╔══╝  ██║╚██╔╝██║██╔══██║╚════██║
- ██████╔╝██║███████╗██║ ╚═╝ ██║██║  ██║███████║
- ╚═════╝ ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝
+ â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ•—   â–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—
+ â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â•â•â•â•â–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—â–ˆâ–ˆâ•”â•â•â•â•â•
+ â–ˆâ–ˆâ•‘  â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—  â–ˆâ–ˆâ•”â–ˆâ–ˆâ–ˆâ–ˆâ•”â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—
+ â–ˆâ–ˆâ•‘  â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â•â•  â–ˆâ–ˆâ•‘â•šâ–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•‘â•šâ•â•â•â•â–ˆâ–ˆâ•‘
+ â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•‘ â•šâ•â• â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘  â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•‘
+ â•šâ•â•â•â•â•â• â•šâ•â•â•šâ•â•â•â•â•â•â•â•šâ•â•     â•šâ•â•â•šâ•â•  â•šâ•â•â•šâ•â•â•â•â•â•â•
       </pre>
-      <p><strong>Muhammad Diemas Mahendra</strong> — <span class="highlight">diemasmhndr</span>.</p>
+      <p><strong>Muhammad Diemas Mahendra</strong> â€” <span class="highlight">diemasmhndr</span>.</p>
       <br/>
-      <p><span class="tag">STATUS:</span> Online. Always.</p>
-      <p><span class="tag">LOCATION:</span> Indonesia</p>
-      <p><span class="tag">OCCUPATION:</span> Programmer &amp; Automation Builder</p>
-      <p><span class="tag">CONTACT:</span> <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></p>
+      <div class="info-grid">
+        <div class="info-row"><span class="tag">STATUS</span><span>Online. Always.</span></div>
+        <div class="info-row"><span class="tag">LOCATION</span><span>Indonesia</span></div>
+        <div class="info-row"><span class="tag">ROLE</span><span>Programmer &amp; Automation Builder</span></div>
+        <div class="info-row"><span class="tag">CONTACT</span><a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></div>
+      </div>
       <br/>
-      <p>I build bots, trading systems, and automation tools<br/>
-      to simplify complex workflows.</p>
+      <p>I build bots, trading systems, and automation tools<br/>to simplify complex workflows.</p>
       <br/>
-      <p>Working across crypto, stocks, and backend systems —<br/>
-      always focused on speed and efficiency.<br/>
-      If there's a repetitive task, I'll automate it.</p>
+      <p>Working across crypto, stocks, and backend systems â€”<br/>always focused on speed and efficiency.<br/>If there's a repetitive task, I'll automate it.</p>
       <br/>
       <p>Available for commissions: bots, scripts, and web-based systems.</p>
       <br/>
@@ -133,206 +198,149 @@
   </div>
 
   <!-- PROJECTS window -->
-  <div class="window" id="win-projects">
+  <div class="window window-wide" id="win-projects">
     <div class="win-titlebar">
-      <span class="win-title">⬛ PROJECTS.EXE — diemasmhndr _</span>
-      <button class="win-close" onclick="closeWindow('projects')">✕</button>
+      <span class="win-title">â¬› PROJECTS.EXE â€” diemasmhndr _</span>
+      <button class="win-close" onclick="closeWindow('projects')">âœ•</button>
     </div>
     <div class="win-body">
-      <p class="sys-log">[SYS] loading project registry... <span class="ok">OK</span></p>
+      <p class="sys-log">[SYS] loading project registry... <span class="ok">10 entries found</span></p>
       <br/>
 
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">01</span>
-          <span class="project-name">CRYPTO TRADING BOT</span>
-          <span class="project-tag">Automation</span>
-        </div>
-        <p class="project-desc">Automated crypto trading bot yang berjalan 24/7. Eksekusi order otomatis berdasarkan sinyal teknikal — MA crossover, RSI, breakout detection. Koneksi ke exchange via API. Tidak butuh manusia untuk klik tombol beli/jual.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">CCXT</span>
-          <span class="tag">Binance API</span>
-          <span class="tag">Pandas</span>
-        </div>
+      <div class="project-grid">
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">02</span>
-          <span class="project-name">STOCK SCREENER BOT</span>
-          <span class="project-tag">Trading Tool</span>
-        </div>
-        <p class="project-desc">Bot screener saham otomatis — scan ratusan ticker setiap hari, filter berdasarkan volume, trend, dan indikator teknikal. Output alert langsung ke Telegram. No more manual chart browsing.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">yFinance</span>
-          <span class="tag">Telegram Bot API</span>
-          <span class="tag">TA-Lib</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">01</span>
+            <span class="project-cat automation">Automation</span>
+          </div>
+          <div class="project-card-name">CRYPTO TRADING BOT</div>
+          <p class="project-desc">Automated crypto trading bot 24/7. Eksekusi order otomatis berdasarkan sinyal teknikal â€” MA crossover, RSI, breakout detection. Koneksi ke exchange via API.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">CCXT</span><span class="tag">Binance API</span><span class="tag">Pandas</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">03</span>
-          <span class="project-name">TELEGRAM AUTOMATION BOT</span>
-          <span class="project-tag">Bot / CLI</span>
-        </div>
-        <p class="project-desc">Bot Telegram multi-fungsi untuk automasi tugas harian — notifikasi harga aset, jadwal eksekusi script, monitoring server, hingga manajemen grup. Command-based interface langsung dari HP.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">python-telegram-bot</span>
-          <span class="tag">Cron</span>
-          <span class="tag">Linux VPS</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">02</span>
+            <span class="project-cat trading">Trading Tool</span>
+          </div>
+          <div class="project-card-name">STOCK SCREENER BOT</div>
+          <p class="project-desc">Scan ratusan ticker setiap hari, filter berdasarkan volume, trend, dan indikator teknikal. Output alert langsung ke Telegram. No more manual chart browsing.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">yFinance</span><span class="tag">Telegram API</span><span class="tag">TA-Lib</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">04</span>
-          <span class="project-name">WEB SCRAPER &amp; DATA PIPELINE</span>
-          <span class="project-tag">Automation</span>
-        </div>
-        <p class="project-desc">Automated scraper untuk mengumpulkan data pasar, berita, dan sentimen aset secara real-time. Data di-parse, disimpan ke database, dan siap digunakan sebagai input sinyal trading atau analisis.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">Selenium</span>
-          <span class="tag">BeautifulSoup</span>
-          <span class="tag">SQLite</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">03</span>
+            <span class="project-cat bot">Bot</span>
+          </div>
+          <div class="project-card-name">TELEGRAM AUTOMATION BOT</div>
+          <p class="project-desc">Bot Telegram multi-fungsi â€” notifikasi harga aset, jadwal eksekusi script, monitoring server, manajemen grup. Command-based interface langsung dari HP.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">python-telegram-bot</span><span class="tag">Cron</span><span class="tag">Linux VPS</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">05</span>
-          <span class="project-name">SERVER MONITORING DASHBOARD</span>
-          <span class="project-tag">DevOps</span>
-        </div>
-        <p class="project-desc">Dashboard monitoring VPS/server real-time — CPU, RAM, disk, network, uptime. Alert otomatis ke Telegram kalau ada resource spike atau service down. Self-hosted, ringan, no bloat.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">psutil</span>
-          <span class="tag">Flask</span>
-          <span class="tag">Telegram API</span>
-          <span class="tag">Linux</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">04</span>
+            <span class="project-cat automation">Automation</span>
+          </div>
+          <div class="project-card-name">WEB SCRAPER &amp; DATA PIPELINE</div>
+          <p class="project-desc">Automated scraper untuk mengumpulkan data pasar, berita, dan sentimen aset real-time. Data di-parse, disimpan ke database, siap digunakan sebagai input sinyal trading.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">BeautifulSoup</span><span class="tag">SQLite</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">06</span>
-          <span class="project-name">API RATE LIMITER & PROXY ROTATOR</span>
-          <span class="project-tag">Backend</span>
-        </div>
-        <p class="project-desc">Tool untuk bypass rate limit API — rotasi proxy otomatis, manajemen session, retry logic, dan request queue. Digunakan untuk scraping skala besar dan data collection tanpa kena block.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">aiohttp</span>
-          <span class="tag">asyncio</span>
-          <span class="tag">Redis</span>
-          <span class="tag">Proxy Pool</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">05</span>
+            <span class="project-cat devops">DevOps</span>
+          </div>
+          <div class="project-card-name">SERVER MONITORING DASHBOARD</div>
+          <p class="project-desc">Dashboard monitoring VPS/server real-time â€” CPU, RAM, disk, network, uptime. Alert otomatis ke Telegram kalau ada resource spike atau service down.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">psutil</span><span class="tag">Flask</span><span class="tag">Linux</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">07</span>
-          <span class="project-name">DISCORD BOT MULTI-PURPOSE</span>
-          <span class="project-tag">Bot</span>
-        </div>
-        <p class="project-desc">Bot Discord dengan fitur lengkap — harga crypto live, kalkulasi PnL, price alert, jadwal reminder, moderasi otomatis, dan command custom. Deploy di VPS, running 24/7 tanpa downtime.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">discord.py</span>
-          <span class="tag">CoinGecko API</span>
-          <span class="tag">SQLite</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">06</span>
+            <span class="project-cat backend">Backend</span>
+          </div>
+          <div class="project-card-name">API RATE LIMITER &amp; PROXY ROTATOR</div>
+          <p class="project-desc">Rotasi proxy otomatis, manajemen session, retry logic, dan request queue. Untuk scraping skala besar dan data collection tanpa kena block.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">aiohttp</span><span class="tag">asyncio</span><span class="tag">Redis</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">08</span>
-          <span class="project-name">AUTOMATED REPORT GENERATOR</span>
-          <span class="project-tag">Automation</span>
-        </div>
-        <p class="project-desc">Sistem generate laporan otomatis — ambil data dari database/API, proses, render ke PDF/Excel, kirim via email atau Telegram sesuai jadwal. Zero manual input setelah setup.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">ReportLab</span>
-          <span class="tag">openpyxl</span>
-          <span class="tag">SMTP</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">07</span>
+            <span class="project-cat bot">Bot</span>
+          </div>
+          <div class="project-card-name">DISCORD BOT MULTI-PURPOSE</div>
+          <p class="project-desc">Bot Discord lengkap â€” harga crypto live, kalkulasi PnL, price alert, jadwal reminder, moderasi otomatis, command custom. Running 24/7 tanpa downtime.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">discord.py</span><span class="tag">CoinGecko API</span><span class="tag">SQLite</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">09</span>
-          <span class="project-name">BACKTESTING ENGINE</span>
-          <span class="project-tag">Trading Tool</span>
-        </div>
-        <p class="project-desc">Engine untuk backtest strategi trading — simulasi historis dengan data OHLCV, kalkulasi winrate, max drawdown, Sharpe ratio, dan equity curve. Sebelum deploy live, test dulu.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Backtrader</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">08</span>
+            <span class="project-cat automation">Automation</span>
+          </div>
+          <div class="project-card-name">AUTOMATED REPORT GENERATOR</div>
+          <p class="project-desc">Generate laporan otomatis â€” ambil data dari database/API, render ke PDF/Excel, kirim via email atau Telegram sesuai jadwal. Zero manual input setelah setup.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">ReportLab</span><span class="tag">openpyxl</span>
+          </div>
         </div>
 
-      </div>
-
-      <div class="divider-sm">· · ·</div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-num">10</span>
-          <span class="project-name">PORTFOLIO WEBSITE</span>
-          <span class="project-tag">Web</span>
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">09</span>
+            <span class="project-cat trading">Trading Tool</span>
+          </div>
+          <div class="project-card-name">BACKTESTING ENGINE</div>
+          <p class="project-desc">Engine backtest strategi trading â€” simulasi historis dengan data OHLCV, kalkulasi winrate, max drawdown, Sharpe ratio, dan equity curve. Test dulu sebelum live.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Backtrader</span>
+          </div>
         </div>
-        <p class="project-desc">This website. Terminal-style dark portfolio dengan CRT aesthetic, glitch animation, dan window-based UI. Karena portfolio programmer harus kelihatan kayak programmer yang bikin.</p>
-        <div class="project-stack">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">Vanilla JS</span>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-num">10</span>
+            <span class="project-cat web">Web</span>
+          </div>
+          <div class="project-card-name">PORTFOLIO WEBSITE</div>
+          <p class="project-desc">This website. Terminal-style dark portfolio dengan CRT aesthetic, glitch animation, boot screen, dan window-based UI. Portfolio programmer harus terlihat seperti programmer yang membuatnya.</p>
+          <div class="project-stack">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Vanilla JS</span>
+          </div>
         </div>
 
       </div>
 
       <br/>
-      <p class="sys-log">[SYS] more projects at: <a href="https://github.com/diemasmhndr" target="_blank" class="link">github.com/diemasmhndr</a></p>
+      <p class="sys-log">[SYS] more at: <a href="https://github.com/diemasmhndr" target="_blank" class="link">github.com/diemasmhndr</a></p>
     </div>
   </div>
 
   <!-- SKILLS window -->
   <div class="window" id="win-skills">
     <div class="win-titlebar">
-      <span class="win-title">⚙ SKILLS.SYS — system log _</span>
-      <button class="win-close" onclick="closeWindow('skills')">✕</button>
+      <span class="win-title">âš™ SKILLS.SYS â€” system log _</span>
+      <button class="win-close" onclick="closeWindow('skills')">âœ•</button>
     </div>
     <div class="win-body">
       <p class="sys-log">[SYS] loading skill modules...</p>
@@ -342,38 +350,46 @@
         <div class="skill-bar-wrap">
           <span class="skill-name">Python</span>
           <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          <span class="skill-pct">92%</span>
         </div>
         <div class="skill-bar-wrap">
           <span class="skill-name">JavaScript</span>
           <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          <span class="skill-pct">80%</span>
         </div>
         <div class="skill-bar-wrap">
           <span class="skill-name">Bash / Shell</span>
           <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+          <span class="skill-pct">75%</span>
         </div>
         <div class="skill-bar-wrap">
           <span class="skill-name">HTML / CSS</span>
           <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          <span class="skill-pct">78%</span>
         </div>
       </div>
       <br/>
       <div class="skill-group">
         <span class="skill-category">TRADING______</span>
         <div class="skill-bar-wrap">
-          <span class="skill-name">Crypto (Spot/Futures)</span>
+          <span class="skill-name">Crypto Spot/Futures</span>
           <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          <span class="skill-pct">88%</span>
         </div>
         <div class="skill-bar-wrap">
           <span class="skill-name">Saham / Equity</span>
           <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          <span class="skill-pct">80%</span>
         </div>
         <div class="skill-bar-wrap">
           <span class="skill-name">Technical Analysis</span>
           <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          <span class="skill-pct">85%</span>
         </div>
         <div class="skill-bar-wrap">
           <span class="skill-name">Algo / Bot Strategy</span>
           <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          <span class="skill-pct">90%</span>
         </div>
       </div>
       <br/>
@@ -389,7 +405,9 @@
           <span class="tag">Docker</span>
           <span class="tag">SQLite</span>
           <span class="tag">Binance API</span>
-          <span class="tag">VS Code</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Flask</span>
+          <span class="tag">asyncio</span>
         </div>
       </div>
       <br/>
@@ -397,42 +415,18 @@
     </div>
   </div>
 
-  <!-- VIDEOS window -->
-  <div class="window" id="win-videos">
-    <div class="win-titlebar">
-      <span class="win-title">▶ VIDEOS.SYS — media channel _</span>
-      <button class="win-close" onclick="closeWindow('videos')">✕</button>
-    </div>
-    <div class="win-body">
-      <p>Video content &amp; demos available on:</p>
-      <br/>
-      <div class="video-item">
-        <span class="tag">YT</span>
-        <a href="https://youtube.com/@yourusername" target="_blank" class="link">youtube.com/@yourusername</a>
-        <p class="video-desc">— project demos, tutorials, experiments.</p>
-      </div>
-      <br/>
-      <div class="video-embed-placeholder">
-        <div class="placeholder-box">
-          [ VIDEO EMBED PLACEHOLDER ]<br/>
-          Replace with actual YouTube embed iframe
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- LINKS window -->
   <div class="window" id="win-links">
     <div class="win-titlebar">
-      <span class="win-title">🔗 LINKS.URL — external nodes _</span>
-      <button class="win-close" onclick="closeWindow('links')">✕</button>
+      <span class="win-title">ðŸ”— LINKS.URL â€” external nodes _</span>
+      <button class="win-close" onclick="closeWindow('links')">âœ•</button>
     </div>
     <div class="win-body">
       <div class="link-item">
         <span class="link-icon">IG</span>
         <div>
           <a href="https://instagram.com/diemasmhndr" target="_blank" class="link">instagram.com/diemasmhndr</a>
-          <p class="link-desc">— behind the screen, projects, life.</p>
+          <p class="link-desc">â€” behind the screen, projects, life.</p>
         </div>
       </div>
     </div>
@@ -441,8 +435,8 @@
   <!-- CONTACT window -->
   <div class="window" id="win-contact">
     <div class="win-titlebar">
-      <span class="win-title">✉ CONTACT.MSG — send transmission _</span>
-      <button class="win-close" onclick="closeWindow('contact')">✕</button>
+      <span class="win-title">âœ‰ CONTACT.MSG â€” send transmission _</span>
+      <button class="win-close" onclick="closeWindow('contact')">âœ•</button>
     </div>
     <div class="win-body">
       <p class="sys-log">[MSG] incoming connection established...<br/>[SYS] recipient: <span class="ok">rebel@btcidr.dev</span></p>
@@ -460,7 +454,7 @@
           <label class="form-label">MESSAGE_</label>
           <textarea class="form-input form-textarea" placeholder="your message here..." required></textarea>
         </div>
-        <button type="submit" class="form-submit">▸ SEND TRANSMISSION</button>
+        <button type="submit" class="form-submit">â–¸ SEND TRANSMISSION</button>
       </form>
       <p class="contact-alt">or reach directly: <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></p>
       <div id="form-status" class="form-status"></div>
@@ -469,5 +463,3 @@
 
   <script src="script.js"></script>
 </body>
-</html>
-

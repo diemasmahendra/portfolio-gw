@@ -2,6 +2,45 @@
    PORTFOLIO GW — script.js
    ============================================================ */
 
+// ── Boot sequence ────────────────────────────────────────────
+const BOOT_LINES = [
+  { status: '[  OK  ]', text: 'Loading kernel modules...', cls: 'ok', delay: 120 },
+  { status: '[  OK  ]', text: 'Initializing memory subsystem', cls: 'ok', delay: 140 },
+  { status: '[  OK  ]', text: 'Mounting filesystems', cls: 'ok', delay: 100 },
+  { status: '[  OK  ]', text: 'Starting network interfaces', cls: 'ok', delay: 160 },
+  { status: '[  OK  ]', text: 'Configuring environment variables', cls: 'ok', delay: 110 },
+  { status: '[  OK  ]', text: 'Connecting to automation services', cls: 'ok', delay: 180 },
+  { status: '[  OK  ]', text: 'Loading trading engine modules', cls: 'ok', delay: 130 },
+  { status: '[  OK  ]', text: 'Spinning up bot runtimes', cls: 'ok', delay: 150 },
+  { status: '[  OK  ]', text: 'Portfolio OS ready', cls: 'ok', delay: 200 },
+];
+
+function runBoot() {
+  const screen  = document.getElementById('bootScreen');
+  const lineWrap = document.getElementById('bootLines');
+  const desktop  = document.getElementById('mainDesktop');
+  if (!screen || !lineWrap || !desktop) return;
+
+  let total = 0;
+
+  BOOT_LINES.forEach((item, i) => {
+    total += item.delay + i * 60;
+    setTimeout(() => {
+      const div = document.createElement('div');
+      div.className = `boot-line ${item.cls}`;
+      div.innerHTML = `<span class="bl-status">${item.status}</span>${item.text}`;
+      lineWrap.appendChild(div);
+    }, total);
+  });
+
+  // Fade out boot screen
+  setTimeout(() => {
+    screen.classList.add('fade-out');
+    desktop.classList.add('visible');
+    setTimeout(() => screen.classList.add('hidden'), 550);
+  }, total + 600);
+}
+
 // ── Clock ────────────────────────────────────────────────────
 function updateClock() {
   const el = document.getElementById('clock');
@@ -9,108 +48,80 @@ function updateClock() {
   const now = new Date();
   const h = String(now.getHours()).padStart(2, '0');
   const m = String(now.getMinutes()).padStart(2, '0');
-  el.textContent = `${h}:${m}`;
+  const s = String(now.getSeconds()).padStart(2, '0');
+  el.textContent = `${h}:${m}:${s}`;
 }
-updateClock();
-setInterval(updateClock, 10000);
 
-// ── Window management ────────────────────────────────────────
-let backdrop = null;
+// ── Window management ─────────────────────────────────────────
+let activeBackdrop = null;
 
-function createBackdrop() {
-  if (backdrop) return;
-  backdrop = document.createElement('div');
+function openWindow(id) {
+  const win = document.getElementById('win-' + id);
+  if (!win) return;
+
+  // Close any open window first
+  closeAllWindows();
+
+  // Create backdrop
+  const backdrop = document.createElement('div');
   backdrop.className = 'win-backdrop';
   backdrop.addEventListener('click', closeAllWindows);
   document.body.appendChild(backdrop);
-}
+  activeBackdrop = backdrop;
 
-function removeBackdrop() {
-  if (backdrop) {
-    backdrop.remove();
-    backdrop = null;
-  }
-}
-
-function openWindow(id) {
-  // Close any open window first
-  closeAllWindows(null, false);
-
-  const win = document.getElementById(`win-${id}`);
-  if (!win) return;
-
-  createBackdrop();
   win.classList.add('active');
-
-  // Re-trigger skill bar animation when skills window opens
-  if (id === 'skills') {
-    win.querySelectorAll('.skill-fill').forEach(bar => {
-      const w = bar.style.width;
-      bar.style.width = '0';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => { bar.style.width = w; });
-      });
-    });
-  }
+  document.body.style.overflow = 'hidden';
 }
 
 function closeWindow(id) {
-  const win = document.getElementById(`win-${id}`);
+  const win = document.getElementById('win-' + id);
   if (win) win.classList.remove('active');
-  // Remove backdrop only if no other window is open
-  const anyOpen = document.querySelector('.window.active');
-  if (!anyOpen) removeBackdrop();
+  removeBackdrop();
+  document.body.style.overflow = '';
 }
 
-function closeAllWindows(e, removeBack = true) {
+function closeAllWindows() {
   document.querySelectorAll('.window.active').forEach(w => w.classList.remove('active'));
-  if (removeBack) removeBackdrop();
+  removeBackdrop();
+  document.body.style.overflow = '';
 }
 
-// Close with Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeAllWindows();
-});
+function removeBackdrop() {
+  if (activeBackdrop) {
+    activeBackdrop.remove();
+    activeBackdrop = null;
+  }
+}
 
-// ── Contact form ─────────────────────────────────────────────
+// ── Contact form ──────────────────────────────────────────────
 function handleSubmit(e) {
   e.preventDefault();
+  const form   = e.target;
   const status = document.getElementById('form-status');
-  const form = e.target;
+  const btn    = form.querySelector('.form-submit');
 
-  status.style.color = 'var(--text-dim)';
-  status.textContent = '[SYS] transmitting...';
+  btn.textContent = 'TRANSMITTING...';
+  btn.disabled = true;
 
-  // Simulate send delay (replace with real fetch/FormSubmit/EmailJS call)
   setTimeout(() => {
-    status.style.color = 'var(--accent-green)';
-    status.textContent = '[OK] transmission received. I\'ll get back to you soon.';
+    if (status) {
+      status.textContent = '> Message transmitted. I\'ll reply soon.';
+    }
     form.reset();
+    btn.textContent = 'TRANSMIT';
+    btn.disabled = false;
   }, 1200);
 }
 
-// ── Glitch title on hover ─────────────────────────────────────
-document.querySelectorAll('.glitch').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    el.style.animation = 'none';
-    void el.offsetWidth; // reflow
-    el.style.animation = '';
-  });
+// ── Keyboard shortcut: Escape closes windows ─────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAllWindows();
 });
 
-// ── Terminal typewriter for intro ────────────────────────────
-(function typewriterEffect() {
-  const intro = document.querySelector('.intro');
-  if (!intro) return;
+// ── Init ──────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  runBoot();
+  updateClock();
+  setInterval(updateClock, 1000);
+});
 
-  const paragraphs = intro.querySelectorAll('p');
-  let delay = 200;
-
-  paragraphs.forEach((p, i) => {
-    p.style.opacity = '0';
-    p.style.transition = 'opacity 0.4s ease';
-    setTimeout(() => {
-      p.style.opacity = '1';
-    }, delay + i * 150);
-  });
-})();
