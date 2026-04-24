@@ -1,5 +1,5 @@
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/templates/default.conf.template
-EXPOSE 8080
-CMD ["/bin/sh", "-c", "envsubst '$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
+FROM node:18-alpine
+RUN npm install -g serve
+WORKDIR /app
+COPY . .
+CMD ["sh", "-c", "serve -s . -p ${PORT:-3000}"]
