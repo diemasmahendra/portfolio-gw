@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>diemasmhndr // portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CRT scanline overlay -->
+  <div class="scanlines"></div>
+  <div class="noise"></div>
+
+  <!-- Desktop -->
+  <div class="desktop">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-title">
+        <span class="glitch" data-text="DIEMASMHNDR">DIEMASMHNDR</span>
+        <span class="header-sub">// programmer · trader · bot builder // system</span>
+      </div>
+      <div class="header-version">v.2026</div>
+    </header>
+
+    <!-- ASCII Divider -->
+    <div class="ascii-divider">─────────────────────────────────────────────────────────────────</div>
+
+    <!-- Intro block -->
+    <section class="intro">
+      <p>
+        <span class="cursor-blink">▶</span> <strong>Muhammad Diemas Mahendra</strong> — programmer, trader &amp; automation builder<br />
+        based in <span class="highlight">Indonesia</span>. always in front of a screen. always building something.
+      </p>
+      <p class="mt">
+        work spans <span class="tag">automation bots</span>,
+        <span class="tag">crypto trading</span>,
+        <span class="tag">stock trading</span>,<br />
+        <span class="tag">backend systems</span> and <span class="tag">scripting</span> — if it can be automated, it will be.
+      </p>
+      <p class="mt">
+        available for commissions: bots, trading tools, automation scripts, web systems.<br />
+        contact: <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a>
+      </p>
+    </section>
+
+    <!-- ASCII Divider -->
+    <div class="ascii-divider">─────────────────────────────────────────────────────────────────</div>
+
+    <!-- Desktop Icons (clickable windows) -->
+    <nav class="icon-grid">
+      <button class="icon-btn" onclick="openWindow('about')">
+        <span class="icon-emoji">📄</span>
+        <span class="icon-label">about.txt</span>
+      </button>
+      <button class="icon-btn" onclick="openWindow('projects')">
+        <span class="icon-emoji">⬛</span>
+        <span class="icon-label">projects.exe</span>
+      </button>
+      <button class="icon-btn" onclick="openWindow('skills')">
+        <span class="icon-emoji">⚙</span>
+        <span class="icon-label">skills.sys</span>
+      </button>
+      <button class="icon-btn" onclick="openWindow('videos')">
+        <span class="icon-emoji">▶</span>
+        <span class="icon-label">videos.sys</span>
+      </button>
+      <button class="icon-btn" onclick="openWindow('links')">
+        <span class="icon-emoji">🔗</span>
+        <span class="icon-label">links.url</span>
+      </button>
+      <button class="icon-btn" onclick="openWindow('contact')">
+        <span class="icon-emoji">✉</span>
+        <span class="icon-label">contact.msg</span>
+      </button>
+    </nav>
+
+    <!-- ASCII Divider -->
+    <div class="ascii-divider">─────────────────────────────────────────────────────────────────</div>
+
+    <!-- Footer tagline -->
+    <footer class="footer">
+      <span class="tagline">automate everything. trade the rest.</span>
+      <span class="footer-links">
+        <a href="https://github.com/diemasmhndr" target="_blank" class="link">GH GitHub</a> ·
+        <a href="https://instagram.com/diemasmhndr" target="_blank" class="link">IG Instagram</a> ·
+        <a href="mailto:rebel@btcidr.dev" class="link">✉ rebel@btcidr.dev</a>
+      </span>
+      <div class="clock" id="clock">00:00</div>
+    </footer>
+
+  </div><!-- /desktop -->
+
+  <!-- ===================== WINDOWS ===================== -->
+
+  <!-- ABOUT window -->
+  <div class="window" id="win-about">
+    <div class="win-titlebar">
+      <span class="win-title">▸ ABOUT.TXT — diemasmhndr _</span>
+      <button class="win-close" onclick="closeWindow('about')">✕</button>
+    </div>
+    <div class="win-body">
+      <pre class="ascii-art">
+ ██████╗ ██╗███████╗███╗   ███╗ █████╗ ███████╗
+ ██╔══██╗██║██╔════╝████╗ ████║██╔══██╗██╔════╝
+ ██║  ██║██║█████╗  ██╔████╔██║███████║███████╗
+ ██║  ██║██║██╔══╝  ██║╚██╔╝██║██╔══██║╚════██║
+ ██████╔╝██║███████╗██║ ╚═╝ ██║██║  ██║███████║
+ ╚═════╝ ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝
+      </pre>
+      <p>Yo. I'm <strong>Muhammad Diemas Mahendra</strong> — <span class="highlight">diemasmhndr</span>.</p>
+      <br/>
+      <p><span class="tag">STATUS:</span> Online. Always.</p>
+      <p><span class="tag">LOCATION:</span> Indonesia</p>
+      <p><span class="tag">OCCUPATION:</span> Programmer / Trader / Bot Builder</p>
+      <p><span class="tag">CONTACT:</span> <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></p>
+      <br/>
+      <p>My natural habitat is a desk with multiple monitors glowing at 2AM.<br/>
+      I write code that works while I sleep — automation bots, trading scripts,<br/>
+      system tools. If it's repetitive, I automate it. If it moves in the market, I trade it.</p>
+      <br/>
+      <p>Crypto markets. Stock markets. Algorithmic logic.<br/>
+      Python scripts that run forever. Bots that don't need lunch breaks.</p>
+      <br/>
+      <p class="sys-log">[SYS] hobbies: screens, keyboards, charts, terminals, more screens.</p>
+    </div>
+  </div>
+
+  <!-- PROJECTS window -->
+  <div class="window" id="win-projects">
+    <div class="win-titlebar">
+      <span class="win-title">⬛ PROJECTS.EXE — diemasmhndr _</span>
+      <button class="win-close" onclick="closeWindow('projects')">✕</button>
+    </div>
+    <div class="win-body">
+      <p class="sys-log">[SYS] loading project registry... <span class="ok">OK</span></p>
+      <br/>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-num">01</span>
+          <span class="project-name">CRYPTO TRADING BOT</span>
+          <span class="project-tag">Automation</span>
+        </div>
+        <p class="project-desc">Automated crypto trading bot yang berjalan 24/7. Eksekusi order otomatis berdasarkan sinyal teknikal — MA crossover, RSI, breakout detection. Koneksi ke exchange via API. Tidak butuh manusia untuk klik tombol beli/jual.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">CCXT</span>
+          <span class="tag">Binance API</span>
+          <span class="tag">Pandas</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/diemasmhndr" target="_blank" class="link">▸ SOURCE CODE</a>
+        </div>
+      </div>
+
+      <div class="divider-sm">· · ·</div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-num">02</span>
+          <span class="project-name">STOCK SCREENER BOT</span>
+          <span class="project-tag">Trading Tool</span>
+        </div>
+        <p class="project-desc">Bot screener saham otomatis — scan ratusan ticker setiap hari, filter berdasarkan volume, trend, dan indikator teknikal. Output alert langsung ke Telegram. No more manual chart browsing.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">yFinance</span>
+          <span class="tag">Telegram Bot API</span>
+          <span class="tag">TA-Lib</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/diemasmhndr" target="_blank" class="link">▸ SOURCE CODE</a>
+        </div>
+      </div>
+
+      <div class="divider-sm">· · ·</div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-num">03</span>
+          <span class="project-name">TELEGRAM AUTOMATION BOT</span>
+          <span class="project-tag">Bot / CLI</span>
+        </div>
+        <p class="project-desc">Bot Telegram multi-fungsi untuk automasi tugas harian — notifikasi harga aset, jadwal eksekusi script, monitoring server, hingga manajemen grup. Command-based interface langsung dari HP.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">python-telegram-bot</span>
+          <span class="tag">Cron</span>
+          <span class="tag">Linux VPS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/diemasmhndr" target="_blank" class="link">▸ SOURCE CODE</a>
+        </div>
+      </div>
+
+      <div class="divider-sm">· · ·</div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-num">04</span>
+          <span class="project-name">WEB SCRAPER &amp; DATA PIPELINE</span>
+          <span class="project-tag">Automation</span>
+        </div>
+        <p class="project-desc">Automated scraper untuk mengumpulkan data pasar, berita, dan sentimen aset secara real-time. Data di-parse, disimpan ke database, dan siap digunakan sebagai input sinyal trading atau analisis.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">BeautifulSoup</span>
+          <span class="tag">SQLite</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/diemasmhndr" target="_blank" class="link">▸ SOURCE CODE</a>
+        </div>
+      </div>
+
+      <div class="divider-sm">· · ·</div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-num">05</span>
+          <span class="project-name">PORTFOLIO WEBSITE</span>
+          <span class="project-tag">Web</span>
+        </div>
+        <p class="project-desc">This website. Terminal-style dark portfolio dengan CRT aesthetic, glitch animation, dan window-based UI. Karena portfolio programmer harus kelihatan kayak programmer yang bikin.</p>
+        <div class="project-stack">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Vanilla JS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/diemasmhndr" target="_blank" class="link">▸ SOURCE CODE</a>
+        </div>
+      </div>
+
+      <br/>
+      <p class="sys-log">[SYS] more projects at: <a href="https://github.com/diemasmhndr" target="_blank" class="link">github.com/diemasmhndr</a></p>
+    </div>
+  </div>
+
+  <!-- SKILLS window -->
+  <div class="window" id="win-skills">
+    <div class="win-titlebar">
+      <span class="win-title">⚙ SKILLS.SYS — system log _</span>
+      <button class="win-close" onclick="closeWindow('skills')">✕</button>
+    </div>
+    <div class="win-body">
+      <p class="sys-log">[SYS] loading skill modules...</p>
+      <br/>
+      <div class="skill-group">
+        <span class="skill-category">PROGRAMMING__</span>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">Bash / Shell</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">HTML / CSS</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+      </div>
+      <br/>
+      <div class="skill-group">
+        <span class="skill-category">TRADING______</span>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">Crypto (Spot/Futures)</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">Saham / Equity</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">Technical Analysis</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <span class="skill-name">Algo / Bot Strategy</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+      </div>
+      <br/>
+      <div class="skill-group">
+        <span class="skill-category">TOOLS________</span>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">CCXT</span>
+          <span class="tag">Telegram API</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">Linux VPS</span>
+          <span class="tag">Git</span>
+          <span class="tag">Docker</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Binance API</span>
+          <span class="tag">VS Code</span>
+        </div>
+      </div>
+      <br/>
+      <p class="sys-log">[SYS] all modules loaded. status: <span class="ok">OK</span></p>
+    </div>
+  </div>
+
+  <!-- VIDEOS window -->
+  <div class="window" id="win-videos">
+    <div class="win-titlebar">
+      <span class="win-title">▶ VIDEOS.SYS — media channel _</span>
+      <button class="win-close" onclick="closeWindow('videos')">✕</button>
+    </div>
+    <div class="win-body">
+      <p>Video content &amp; demos available on:</p>
+      <br/>
+      <div class="video-item">
+        <span class="tag">YT</span>
+        <a href="https://youtube.com/@yourusername" target="_blank" class="link">youtube.com/@yourusername</a>
+        <p class="video-desc">— project demos, tutorials, experiments.</p>
+      </div>
+      <br/>
+      <div class="video-embed-placeholder">
+        <div class="placeholder-box">
+          [ VIDEO EMBED PLACEHOLDER ]<br/>
+          Replace with actual YouTube embed iframe
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS window -->
+  <div class="window" id="win-links">
+    <div class="win-titlebar">
+      <span class="win-title">🔗 LINKS.URL — external nodes _</span>
+      <button class="win-close" onclick="closeWindow('links')">✕</button>
+    </div>
+    <div class="win-body">
+      <div class="link-item">
+        <span class="link-icon">GH</span>
+        <div>
+          <a href="https://github.com/diemasmhndr" target="_blank" class="link">github.com/diemasmhndr</a>
+          <p class="link-desc">— automation bots, trading tools, open source experiments.</p>
+        </div>
+      </div>
+      <div class="link-item">
+        <span class="link-icon">X</span>
+        <div>
+          <a href="https://x.com/diemasmhndr" target="_blank" class="link">x.com/diemasmhndr</a>
+          <p class="link-desc">— market thoughts, code, random signals.</p>
+        </div>
+      </div>
+      <div class="link-item">
+        <span class="link-icon">IG</span>
+        <div>
+          <a href="https://instagram.com/diemasmhndr" target="_blank" class="link">instagram.com/diemasmhndr</a>
+          <p class="link-desc">— behind the screen, projects, life.</p>
+        </div>
+      </div>
+      <div class="link-item">
+        <span class="link-icon">LI</span>
+        <div>
+          <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a>
+          <p class="link-desc">— direct line. fastest response.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT window -->
+  <div class="window" id="win-contact">
+    <div class="win-titlebar">
+      <span class="win-title">✉ CONTACT.MSG — send transmission _</span>
+      <button class="win-close" onclick="closeWindow('contact')">✕</button>
+    </div>
+    <div class="win-body">
+      <p class="sys-log">[MSG] incoming connection established...<br/>[SYS] recipient: <span class="ok">rebel@btcidr.dev</span></p>
+      <br/>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">NAME_</label>
+          <input type="text" class="form-input" placeholder="your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">EMAIL_</label>
+          <input type="email" class="form-input" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">MESSAGE_</label>
+          <textarea class="form-input form-textarea" placeholder="your message here..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">▸ SEND TRANSMISSION</button>
+      </form>
+      <p class="contact-alt">or reach directly: <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></p>
+      <div id="form-status" class="form-status"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
