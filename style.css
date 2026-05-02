@@ -96,10 +96,9 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
    HERO
    ============================================================ */
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
   padding: 3.5rem 0 2.5rem;
 }
 
@@ -175,41 +174,6 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px #000;
 }
-
-/* Terminal card */
-.terminal-card {
-  border: 2px solid var(--border);
-  background: #111;
-  box-shadow: var(--shadow-lg);
-}
-
-.tc-bar {
-  display: flex; align-items: center; gap: 0.4rem;
-  padding: 0.55rem 0.9rem;
-  background: #1c1c1c; border-bottom: 2px solid var(--border);
-}
-
-.tc-dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; border: 1px solid rgba(255,255,255,0.2); }
-.tc-dot.r { background: #ff5f57; }
-.tc-dot.y { background: #febc2e; }
-.tc-dot.g { background: #28c840; }
-
-.tc-title { font-size: 0.7rem; color: #777; margin-left: 0.3rem; font-family: var(--font-mono); }
-
-.tc-body {
-  padding: 1.2rem 1.4rem;
-  font-size: 0.76rem; line-height: 2.1;
-  font-family: var(--font-mono);
-  color: #ccc;
-}
-
-.tc-line { display: flex; align-items: baseline; gap: 0.5rem; }
-.tc-line.out { padding-left: 1rem; }
-.tc-prompt { color: var(--yellow); font-weight: 700; }
-.tc-ok { color: #00ff88; font-weight: 700; }
-.tc-blink { animation: blink 0.8s step-end infinite; color: var(--yellow); }
-
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
 /* ============================================================
    STATS BAR
@@ -569,8 +533,7 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 0 1.5rem; }
-  .hero-right { display: none; }
+  .hero { padding: 2rem 0 1.5rem; }
   .hero-title { font-size: 2.2rem; }
   .icon-grid { grid-template-columns: repeat(3, 1fr); }
   .project-grid { grid-template-columns: 1fr; }
