@@ -60,16 +60,13 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
    ============================================================ */
 .topbar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0.7rem 1.2rem;
-  background: var(--yellow);
+  padding: 0.6rem 0;
   color: var(--text);
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   letter-spacing: 0.07em;
   font-weight: 700;
-  border: 2px solid var(--border);
-  border-top: none;
-  box-shadow: var(--shadow);
-  margin-bottom: 0.2rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 0;
 }
 
 .topbar-left, .topbar-right { display: flex; align-items: center; gap: 0.6rem; }
@@ -86,11 +83,11 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
 .topbar-name { color: var(--text); font-weight: 900; letter-spacing: 0.15em; }
-.topbar-sep { color: #666; }
+.topbar-sep { color: #aaa; }
 .topbar-status { color: var(--text); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; }
-.topbar-item { color: var(--text); font-weight: 700; }
+.topbar-item { color: var(--text-dim); font-weight: 600; }
 .clock {
-  font-weight: 800; letter-spacing: 0.12em;
+  font-weight: 700; letter-spacing: 0.1em;
   color: var(--text); min-width: 44px;
   font-family: var(--font-mono);
 }
@@ -102,7 +99,7 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
   display: flex;
   flex-direction: column;
   max-width: 640px;
-  padding: 3.5rem 0 2.5rem;
+  padding: 2rem 0 2rem;
 }
 
 .hero-eyebrow {
@@ -536,11 +533,32 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-  .hero { padding: 2rem 0 1.5rem; }
-  .hero-title { font-size: 2.2rem; }
-  .icon-grid { grid-template-columns: repeat(3, 1fr); }
-  .project-grid { grid-template-columns: 1fr; }
+  .desktop { padding: 0 1rem 3rem; }
+
+  .topbar { padding: 0.5rem 0; }
+
+  .hero { padding: 1.4rem 0 1.5rem; }
+  .hero-title { font-size: 2rem; }
+  .hero-desc { font-size: 0.88rem; max-width: 100%; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 0.75rem 1rem; }
+  .hero-cta { flex-direction: column; }
+
   .stats-bar { flex-wrap: wrap; }
   .stat-div { display: none; }
   .stat-item { flex: 1 1 45%; border-bottom: 2px solid var(--border); }
+  .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+
+  .icon-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .window { width: 96vw; max-height: 88vh; top: 50%; }
+  .window.window-wide { width: 96vw; }
+  .win-body { padding: 1.1rem 1rem; }
+
+  .project-grid { grid-template-columns: 1fr; }
+
+  .skill-name { width: 120px; font-size: 0.78rem; }
+
+  .footer { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+
+  .form-submit { width: 100%; text-align: center; align-self: stretch; }
 }
