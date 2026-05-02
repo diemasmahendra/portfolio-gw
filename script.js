@@ -85,8 +85,45 @@ document.addEventListener('keydown', e => {
 document.addEventListener('DOMContentLoaded', () => {
   updateClock();
   setInterval(updateClock, 1000);
-  setLang('id');
+  setLang('ja');
+  initCursor();
 });
+
+// ── Custom cursor ─────────────────────────────────────────────
+function initCursor() {
+  const cursor = document.createElement('div');
+  cursor.id = 'custom-cursor';
+  const trail = document.createElement('div');
+  trail.id = 'cursor-trail';
+  document.body.appendChild(cursor);
+  document.body.appendChild(trail);
+
+  let mx = -100, my = -100, tx = -100, ty = -100;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
+  });
+
+  // Trail follows with lag
+  function animateTrail() {
+    tx += (mx - tx) * 0.12;
+    ty += (my - ty) * 0.12;
+    trail.style.transform = `translate(${tx - 16}px, ${ty - 16}px)`;
+    requestAnimationFrame(animateTrail);
+  }
+  animateTrail();
+
+  // Click effect
+  document.addEventListener('mousedown', () => cursor.classList.add('clicked'));
+  document.addEventListener('mouseup', () => cursor.classList.remove('clicked'));
+
+  // Hover effect on interactive elements
+  document.querySelectorAll('a, button, [onclick]').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+  });
+}
 
 // ── Language switcher ─────────────────────────────────────────
 const LANGS = {
