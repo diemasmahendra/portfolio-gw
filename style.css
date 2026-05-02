@@ -75,6 +75,8 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 .topbar-dot {
   width: 8px; height: 8px; border-radius: 50%; display: inline-block;
   border: 1.5px solid rgba(0,0,0,0.3);
+  vertical-align: middle;
+  position: relative; top: -1px;
 }
 .topbar-dot.online {
   background: #00aa44;
