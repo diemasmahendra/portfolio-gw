@@ -51,8 +51,7 @@
       <button class="icon-btn" onclick="openWindow('about')"><span class="icon-label">About</span><span class="icon-desc">who I am</span></button>
       <button class="icon-btn" onclick="openWindow('projects')"><span class="icon-label">Projects</span><span class="icon-desc">10 projects</span></button>
       <button class="icon-btn" onclick="openWindow('skills')"><span class="icon-label">Skills</span><span class="icon-desc">stack &amp; tools</span></button>
-      <button class="icon-btn" onclick="openWindow('links')"><span class="icon-label">Links</span><span class="icon-desc">find me</span></button>
-      <button class="icon-btn" onclick="openWindow('contact')"><span class="icon-label">Contact</span><span class="icon-desc">commission me</span></button>
+      <button class="icon-btn" onclick="openWindow('contact')"><span class="icon-label">Contact</span><span class="icon-desc">reach out</span></button>
     </nav>
     <footer class="footer">
       <span class="tagline">automate everything. trade the rest.</span>
@@ -137,8 +136,8 @@
     </div>
   </div>
 
-  <div class="window" id="win-links">
-    <div class="win-titlebar"><span class="win-title">LINKS</span><button class="win-close" onclick="closeWindow('links')">&#x2715;</button></div>
+  <div class="window" id="win-contact">
+    <div class="win-titlebar"><span class="win-title">CONTACT</span><button class="win-close" onclick="closeWindow('contact')">&#x2715;</button></div>
     <div class="win-body">
       <div class="link-item">
         <span class="link-icon">TG</span>
@@ -154,13 +153,7 @@
           <p class="link-desc">For serious inquiries and project commissions.</p>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="window" id="win-contact">
-    <div class="win-titlebar"><span class="win-title">CONTACT</span><button class="win-close" onclick="closeWindow('contact')">&#x2715;</button></div>
-    <div class="win-body">
-      <p>Send a message or reach out directly at <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></p><br/>
+      <br/>
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <div class="form-group"><label class="form-label">NAME</label><input type="text" class="form-input" placeholder="Your name" required /></div>
         <div class="form-group"><label class="form-label">EMAIL</label><input type="email" class="form-input" placeholder="your@email.com" required /></div>
@@ -168,6 +161,8 @@
         <button type="submit" class="form-submit">SEND MESSAGE</button>
       </form>
       <div id="form-status" class="form-status"></div>
+    </div>
+  </div>
     </div>
   </div>
 
