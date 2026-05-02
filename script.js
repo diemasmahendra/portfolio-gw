@@ -114,8 +114,16 @@ function initCursor() {
   }
   animateTrail();
 
-  // Click effect
-  document.addEventListener('mousedown', () => cursor.classList.add('clicked'));
+  // Click burst effect
+  document.addEventListener('mousedown', e => {
+    cursor.classList.add('clicked');
+    const burst = document.createElement('div');
+    burst.className = 'cursor-burst';
+    burst.style.left = e.clientX + 'px';
+    burst.style.top = e.clientY + 'px';
+    document.body.appendChild(burst);
+    burst.addEventListener('animationend', () => burst.remove());
+  });
   document.addEventListener('mouseup', () => cursor.classList.remove('clicked'));
 
   // Hover effect on interactive elements

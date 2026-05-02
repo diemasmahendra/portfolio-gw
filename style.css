@@ -12,11 +12,23 @@
   top: 0; left: 0; will-change: transform;
 }
 #custom-cursor.hovered { background: #FFE14D; outline: 2px solid #000; }
-#custom-cursor.clicked { width: 8px; height: 8px; background: #FFE14D; }
+#custom-cursor.clicked { background: #FFE14D; }
 #cursor-trail {
   position: fixed; z-index: 99998; pointer-events: none;
   width: 32px; height: 32px; border: 2px solid #000;
   top: 0; left: 0; opacity: 0.3; will-change: transform;
+}
+.cursor-burst {
+  position: fixed; z-index: 99997; pointer-events: none;
+  width: 10px; height: 10px;
+  border: 2.5px solid #000;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  animation: burst-out 0.4s cubic-bezier(0.2,0.8,0.4,1) forwards;
+}
+@keyframes burst-out {
+  0%   { width: 10px; height: 10px; opacity: 1; }
+  100% { width: 48px; height: 48px; opacity: 0; }
 }
 
 :root {
