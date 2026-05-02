@@ -2,44 +2,7 @@
    PORTFOLIO GW — script.js
    ============================================================ */
 
-// ── Boot sequence ────────────────────────────────────────────
-const BOOT_LINES = [
-  { status: '[  OK  ]', text: 'Loading kernel modules...', cls: 'ok', delay: 120 },
-  { status: '[  OK  ]', text: 'Initializing memory subsystem', cls: 'ok', delay: 140 },
-  { status: '[  OK  ]', text: 'Mounting filesystems', cls: 'ok', delay: 100 },
-  { status: '[  OK  ]', text: 'Starting network interfaces', cls: 'ok', delay: 160 },
-  { status: '[  OK  ]', text: 'Configuring environment variables', cls: 'ok', delay: 110 },
-  { status: '[  OK  ]', text: 'Connecting to automation services', cls: 'ok', delay: 180 },
-  { status: '[  OK  ]', text: 'Loading trading engine modules', cls: 'ok', delay: 130 },
-  { status: '[  OK  ]', text: 'Spinning up bot runtimes', cls: 'ok', delay: 150 },
-  { status: '[  OK  ]', text: 'Portfolio OS ready', cls: 'ok', delay: 200 },
-];
 
-function runBoot() {
-  const screen  = document.getElementById('bootScreen');
-  const lineWrap = document.getElementById('bootLines');
-  const desktop  = document.getElementById('mainDesktop');
-  if (!screen || !lineWrap || !desktop) return;
-
-  let total = 0;
-
-  BOOT_LINES.forEach((item, i) => {
-    total += item.delay + i * 60;
-    setTimeout(() => {
-      const div = document.createElement('div');
-      div.className = `boot-line ${item.cls}`;
-      div.innerHTML = `<span class="bl-status">${item.status}</span>${item.text}`;
-      lineWrap.appendChild(div);
-    }, total);
-  });
-
-  // Fade out boot screen
-  setTimeout(() => {
-    screen.classList.add('fade-out');
-    desktop.classList.add('visible');
-    setTimeout(() => screen.classList.add('hidden'), 550);
-  }, total + 600);
-}
 
 // ── Clock ────────────────────────────────────────────────────
 function updateClock() {
@@ -120,7 +83,6 @@ document.addEventListener('keydown', e => {
 
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  runBoot();
   updateClock();
   setInterval(updateClock, 1000);
 });

@@ -1,5 +1,5 @@
 /* ============================================================
-   NEOBRUTALISM THEME — diemasmhndr portfolio
+   NEOBRUTALISM THEME ï¿½ diemasmhndr portfolio
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,51 +41,6 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 
 /* Hide CRT effects */
 .scanlines, .noise { display: none; }
-
-/* ============================================================
-   BOOT SCREEN
-   ============================================================ */
-.boot-screen {
-  position: fixed; inset: 0; z-index: 9999;
-  background: var(--yellow);
-  border: 4px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.4s ease;
-}
-
-.boot-screen.fade-out { opacity: 0; pointer-events: none; }
-.boot-screen.hidden { display: none; }
-
-.boot-content { width: 520px; max-width: 90vw; }
-
-.boot-logo {
-  font-size: 2.2rem; font-weight: 900;
-  color: var(--text);
-  letter-spacing: 0.08em;
-  margin-bottom: 1.5rem;
-  font-family: var(--font);
-  border-bottom: 3px solid var(--border);
-  padding-bottom: 0.8rem;
-}
-
-.boot-cursor { animation: blink 0.8s step-end infinite; }
-
-.boot-lines {
-  font-size: 0.82rem;
-  color: var(--text-dim);
-  line-height: 2;
-  font-family: var(--font-mono);
-}
-
-.boot-line { opacity: 0; animation: boot-line-in 0.1s ease forwards; }
-.boot-line.ok .bl-status { color: #006633; font-weight: 700; }
-.boot-line.err .bl-status { color: var(--red); font-weight: 700; }
-.bl-status { margin-right: 0.6rem; }
-
-@keyframes boot-line-in {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
 
 /* ============================================================
    MAIN DESKTOP
@@ -373,7 +328,7 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 }
 
 /* ============================================================
-   GLITCH — disabled in neobrutalism
+   GLITCH ï¿½ disabled in neobrutalism
    ============================================================ */
 .glitch { position: relative; display: inline-block; }
 .glitch::before, .glitch::after { display: none; }
