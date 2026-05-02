@@ -76,22 +76,22 @@
   </div>
 
   <div class="window" id="win-about">
-    <div class="win-titlebar"><span class="win-title">ABOUT</span><button class="win-close" onclick="closeWindow('about')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winAbout">ABOUT</span><button class="win-close" onclick="closeWindow('about')">&#x2715;</button></div>
     <div class="win-body">
       <div class="info-grid">
-        <div class="info-row"><span class="tag">STATUS</span><span>Online. Always.</span></div>
-        <div class="info-row"><span class="tag">LOCATION</span><span>Indonesia</span></div>
-        <div class="info-row"><span class="tag">ROLE</span><span>Programmer &amp; Automation Builder</span></div>
-        <div class="info-row"><span class="tag">CONTACT</span><a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></div>
+        <div class="info-row"><span class="tag" data-i18n="tagStatus">STATUS</span><span data-i18n="statusVal">Online. Always.</span></div>
+        <div class="info-row"><span class="tag" data-i18n="tagLocation">LOCATION</span><span data-i18n="locationVal">Indonesia</span></div>
+        <div class="info-row"><span class="tag" data-i18n="tagRole">ROLE</span><span data-i18n="roleVal">Programmer &amp; Automation Builder</span></div>
+        <div class="info-row"><span class="tag" data-i18n="tagContact">CONTACT</span><a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a></div>
       </div><br/>
-      <p>I build bots, trading systems, and automation tools to simplify complex workflows.</p><br/>
-      <p>Working across crypto, stocks, and backend systems &mdash; always focused on speed and efficiency. If there is a repetitive task, I will automate it.</p><br/>
-      <p>Available for commissions: bots, scripts, and web-based systems.</p>
+      <p data-i18n="aboutP1">I build bots, trading systems, and automation tools to simplify complex workflows.</p><br/>
+      <p data-i18n="aboutP2">Working across crypto, stocks, and backend systems &mdash; always focused on speed and efficiency. If there is a repetitive task, I will automate it.</p><br/>
+      <p data-i18n="aboutP3">Available for commissions: bots, scripts, and web-based systems.</p>
     </div>
   </div>
 
   <div class="window window-wide" id="win-projects">
-    <div class="win-titlebar"><span class="win-title">PROJECTS</span><button class="win-close" onclick="closeWindow('projects')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winProjects">PROJECTS</span><button class="win-close" onclick="closeWindow('projects')">&#x2715;</button></div>
     <div class="win-body">
       <div class="project-grid">
         <div class="project-card"><div class="project-card-header"><span class="project-num">01</span><span class="project-cat automation">Automation</span></div><div class="project-card-name">CRYPTO TRADING BOT</div><p class="project-desc">Automated 24/7 crypto trading bot. Executes orders based on technical signals &mdash; MA crossover, RSI, breakout detection. Connected to exchange via API.</p><div class="project-stack"><span class="tag">Python</span><span class="tag">CCXT</span><span class="tag">Binance API</span><span class="tag">Pandas</span></div></div>
@@ -109,7 +109,7 @@
   </div>
 
   <div class="window" id="win-skills">
-    <div class="win-titlebar"><span class="win-title">SKILLS</span><button class="win-close" onclick="closeWindow('skills')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winSkills">SKILLS</span><button class="win-close" onclick="closeWindow('skills')">&#x2715;</button></div>
     <div class="win-body">
       <div class="skill-group">
         <span class="skill-category">PROGRAMMING</span>
@@ -148,28 +148,28 @@
   </div>
 
   <div class="window" id="win-contact">
-    <div class="win-titlebar"><span class="win-title">CONTACT</span><button class="win-close" onclick="closeWindow('contact')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winContact">CONTACT</span><button class="win-close" onclick="closeWindow('contact')">&#x2715;</button></div>
     <div class="win-body">
       <div class="link-item">
         <span class="link-icon">TG</span>
         <div>
           <a href="https://t.me/diemasmhndr" target="_blank" class="link">t.me/diemasmhndr</a>
-          <p class="link-desc">Reach out directly — commissions, collabs, or just to talk.</p>
+          <p class="link-desc" data-i18n="tgDesc">Reach out directly — commissions, collabs, or just to talk.</p>
         </div>
       </div>
       <div class="link-item">
         <span class="link-icon">EM</span>
         <div>
           <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a>
-          <p class="link-desc">For serious inquiries and project commissions.</p>
+          <p class="link-desc" data-i18n="emDesc">For serious inquiries and project commissions.</p>
         </div>
       </div>
       <br/>
       <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-group"><label class="form-label">NAME</label><input type="text" class="form-input" placeholder="Your name" required /></div>
-        <div class="form-group"><label class="form-label">EMAIL</label><input type="email" class="form-input" placeholder="your@email.com" required /></div>
-        <div class="form-group"><label class="form-label">MESSAGE</label><textarea class="form-input form-textarea" placeholder="Your message..." required></textarea></div>
-        <button type="submit" class="form-submit">SEND MESSAGE</button>
+        <div class="form-group"><label class="form-label" data-i18n="formName">NAME</label><input type="text" class="form-input" data-i18n-placeholder="formNamePh" placeholder="Your name" required /></div>
+        <div class="form-group"><label class="form-label" data-i18n="formEmail">EMAIL</label><input type="email" class="form-input" placeholder="your@email.com" required /></div>
+        <div class="form-group"><label class="form-label" data-i18n="formMsg">MESSAGE</label><textarea class="form-input form-textarea" data-i18n-placeholder="formMsgPh" placeholder="Your message..." required></textarea></div>
+        <button type="submit" class="form-submit" data-i18n="formSend">SEND MESSAGE</button>
       </form>
       <div id="form-status" class="form-status"></div>
     </div>
