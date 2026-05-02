@@ -585,10 +585,12 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
   .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 0.75rem 1rem; }
   .hero-cta { flex-direction: column; }
 
-  .stats-bar { flex-wrap: wrap; }
+  .stats-bar { display: grid; grid-template-columns: 1fr 1fr; }
   .stat-div { display: none; }
-  .stat-item { flex: 1 1 45%; border-bottom: 2px solid var(--border); }
-  .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+  .stat-item { flex: unset; border-right: 2px solid var(--border); border-bottom: 2px solid var(--border); }
+  .stat-item:nth-child(3) { border-right: none; }
+  .stat-item:nth-child(5) { border-bottom: none; }
+  .stat-item:nth-child(7) { border-right: none; border-bottom: none; }
 
   .icon-grid { grid-template-columns: repeat(2, 1fr); }
 
