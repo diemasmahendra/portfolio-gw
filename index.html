@@ -17,44 +17,55 @@
         <span class="topbar-status">ONLINE</span>
       </div>
       <div class="topbar-right">
-        <span class="topbar-item">IDN</span>
+        <div class="lang-picker" id="langPicker">
+          <button class="lang-current" id="langBtn" onclick="toggleLangMenu()">IDN ▾</button>
+          <div class="lang-menu" id="langMenu">
+            <button onclick="setLang('id')">IDN — Indonesia</button>
+            <button onclick="setLang('en')">ENG — English</button>
+            <button onclick="setLang('ja')">JPN — 日本語</button>
+            <button onclick="setLang('ko')">KOR — 한국어</button>
+            <button onclick="setLang('es')">ESP — Español</button>
+            <button onclick="setLang('ar')">AR — العربية</button>
+            <button onclick="setLang('zh')">CHN — 中文</button>
+          </div>
+        </div>
         <span class="topbar-sep">|</span>
         <span class="clock" id="clock">00:00</span>
       </div>
     </div>
     <header class="hero">
       <div class="hero-left">
-        <div class="hero-eyebrow">Hello, I am</div>
+        <div class="hero-eyebrow" data-i18n="hello">Hello, I am</div>
         <h1 class="hero-title">Muhammad<br/><span class="hero-title-2">Diemas Mahendra</span></h1>
         <div class="hero-roles">
-          <span class="role-badge">Programmer</span>
-          <span class="role-badge">Automation Builder</span>
-          <span class="role-badge">Trader</span>
+          <span class="role-badge" data-i18n="role1">Programmer</span>
+          <span class="role-badge" data-i18n="role2">Automation Builder</span>
+          <span class="role-badge" data-i18n="role3">Trader</span>
         </div>
-        <p class="hero-desc">Building bots, trading systems, and automation tools that actually work. Focused on speed, precision, and eliminating manual work entirely.</p>
+        <p class="hero-desc" data-i18n="heroDesc">Building bots, trading systems, and automation tools that actually work. Focused on speed, precision, and eliminating manual work entirely.</p>
         <div class="hero-cta">
-          <a href="mailto:rebel@btcidr.dev" class="btn-primary">HIRE ME</a>
-          <button class="btn-secondary" onclick="openWindow('projects')">VIEW PROJECTS</button>
+          <a href="mailto:rebel@btcidr.dev" class="btn-primary" data-i18n="hireMe">HIRE ME</a>
+          <button class="btn-secondary" onclick="openWindow('projects')" data-i18n="viewProjects">VIEW PROJECTS</button>
         </div>
       </div>
     </header>
     <div class="stats-bar">
-      <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">Projects Built</span></div>
+      <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label" data-i18n="statProjects">Projects Built</span></div>
       <div class="stat-div"></div>
-      <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Bot Uptime</span></div>
+      <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label" data-i18n="statUptime">Bot Uptime</span></div>
       <div class="stat-div"></div>
-      <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">Years Coding</span></div>
+      <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label" data-i18n="statYears">Years Coding</span></div>
       <div class="stat-div"></div>
-      <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">Active Bots</span></div>
+      <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label" data-i18n="statBots">Active Bots</span></div>
     </div>
     <nav class="icon-grid">
-      <button class="icon-btn" onclick="openWindow('about')"><span class="icon-label">About</span><span class="icon-desc">who I am</span></button>
-      <button class="icon-btn" onclick="openWindow('projects')"><span class="icon-label">Projects</span><span class="icon-desc">10 projects</span></button>
-      <button class="icon-btn" onclick="openWindow('skills')"><span class="icon-label">Skills</span><span class="icon-desc">stack &amp; tools</span></button>
-      <button class="icon-btn" onclick="openWindow('contact')"><span class="icon-label">Contact</span><span class="icon-desc">reach out</span></button>
+      <button class="icon-btn" onclick="openWindow('about')"><span class="icon-label" data-i18n="navAbout">About</span><span class="icon-desc" data-i18n="navAboutDesc">who I am</span></button>
+      <button class="icon-btn" onclick="openWindow('projects')"><span class="icon-label" data-i18n="navProjects">Projects</span><span class="icon-desc" data-i18n="navProjectsDesc">10 projects</span></button>
+      <button class="icon-btn" onclick="openWindow('skills')"><span class="icon-label" data-i18n="navSkills">Skills</span><span class="icon-desc" data-i18n="navSkillsDesc">stack &amp; tools</span></button>
+      <button class="icon-btn" onclick="openWindow('contact')"><span class="icon-label" data-i18n="navContact">Contact</span><span class="icon-desc" data-i18n="navContactDesc">reach out</span></button>
     </nav>
     <footer class="footer">
-      <span class="tagline">automate everything. trade the rest.</span>
+      <span class="tagline" data-i18n="tagline">automate everything. trade the rest.</span>
       <span class="footer-links">
         <a href="https://instagram.com/diemasmhndr" target="_blank" class="link">Instagram</a>
         <span class="footer-sep">&middot;</span>

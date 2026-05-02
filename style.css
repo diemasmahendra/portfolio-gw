@@ -87,6 +87,47 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 .topbar-sep { color: #aaa; }
 .topbar-status { color: var(--text); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; }
 .topbar-item { color: var(--text-dim); font-weight: 600; }
+
+/* Language picker */
+.lang-picker { position: relative; }
+
+.lang-current {
+  background: none; border: 1.5px solid var(--border);
+  color: var(--text); font-family: var(--font);
+  font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 0.08em; padding: 0.2em 0.55em;
+  cursor: pointer;
+  box-shadow: 1px 1px 0px #000;
+  transition: background var(--transition);
+}
+
+.lang-current:hover { background: var(--yellow); }
+
+.lang-menu {
+  display: none;
+  position: absolute; top: calc(100% + 6px); right: 0;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
+  min-width: 160px;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.lang-menu.open { display: flex; }
+
+.lang-menu button {
+  background: none; border: none; border-bottom: 1.5px solid #eee;
+  color: var(--text); font-family: var(--font);
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.55rem 0.9rem;
+  text-align: left; cursor: pointer;
+  transition: background var(--transition);
+}
+
+.lang-menu button:last-child { border-bottom: none; }
+.lang-menu button:hover { background: var(--yellow); }
 .clock {
   font-weight: 700; letter-spacing: 0.1em;
   color: var(--text); min-width: 44px;
