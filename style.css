@@ -61,34 +61,37 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 .topbar {
   display: flex; justify-content: space-between; align-items: center;
   padding: 0.7rem 1.2rem;
-  background: var(--text);
-  color: #fff;
+  background: var(--yellow);
+  color: var(--text);
   font-size: 0.73rem;
   letter-spacing: 0.07em;
-  font-weight: 600;
-  border-bottom: 3px solid var(--border);
+  font-weight: 700;
+  border: 2px solid var(--border);
+  border-top: none;
+  box-shadow: var(--shadow);
+  margin-bottom: 0.2rem;
 }
 
 .topbar-left, .topbar-right { display: flex; align-items: center; gap: 0.6rem; }
 
 .topbar-dot {
   width: 8px; height: 8px; border-radius: 50%; display: inline-block;
-  border: 1.5px solid rgba(255,255,255,0.4);
+  border: 1.5px solid rgba(0,0,0,0.3);
 }
 .topbar-dot.online {
-  background: var(--green);
+  background: #00aa44;
   animation: pulse-dot 2.5s ease infinite;
 }
 
 @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
-.topbar-name { color: var(--yellow); font-weight: 900; letter-spacing: 0.15em; }
-.topbar-sep { color: #555; }
-.topbar-status { color: var(--green); font-size: 0.68rem; font-weight: 700; }
-.topbar-item { color: #bbb; }
+.topbar-name { color: var(--text); font-weight: 900; letter-spacing: 0.15em; }
+.topbar-sep { color: #666; }
+.topbar-status { color: var(--text); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; }
+.topbar-item { color: var(--text); font-weight: 700; }
 .clock {
   font-weight: 800; letter-spacing: 0.12em;
-  color: var(--yellow); min-width: 44px;
+  color: var(--text); min-width: 44px;
   font-family: var(--font-mono);
 }
 
