@@ -60,7 +60,8 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
    ============================================================ */
 .topbar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0.6rem 0;
+  padding: 0.6rem 2rem;
+  margin: 0 -2rem;
   color: var(--text);
   font-size: 0.72rem;
   letter-spacing: 0.07em;
@@ -535,7 +536,7 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 @media (max-width: 768px) {
   .desktop { padding: 0 1rem 3rem; }
 
-  .topbar { padding: 0.5rem 0; }
+  .topbar { padding: 0.5rem 1rem; margin: 0 -1rem; }
 
   .hero { padding: 1.4rem 0 1.5rem; }
   .hero-title { font-size: 2rem; }
