@@ -265,31 +265,34 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
    ============================================================ */
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.7rem; margin: 0.5rem 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin: 0.7rem 0;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .icon-btn {
   display: flex; flex-direction: column; align-items: flex-start; gap: 0.15rem;
-  padding: 1.1rem 1rem;
-  border: 2px solid var(--border);
+  padding: 0.85rem 1rem;
+  border: none;
+  border-right: 2px solid var(--border);
   background: var(--surface);
   color: var(--text); font-family: var(--font);
   cursor: pointer; user-select: none;
-  box-shadow: var(--shadow);
-  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  box-shadow: none;
+  transition: transform var(--transition), background var(--transition);
   position: relative;
 }
+
+.icon-btn:last-child { border-right: none; }
 
 .icon-btn::after { display: none; }
 
 .icon-btn:hover {
   background: var(--yellow);
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #000;
 }
 
-.icon-btn:active { transform: translate(4px, 4px); box-shadow: none; }
+.icon-btn:active { background: var(--yellow); }
 
 .icon-glyph { font-size: 1.3rem; margin-bottom: 0.4rem; display: block; }
 .icon-label { font-size: 0.78rem; color: var(--text); letter-spacing: 0.02em; font-weight: 700; }
@@ -593,6 +596,9 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
   .stat-item:nth-child(7) { border-right: none; border-bottom: none; }
 
   .icon-grid { grid-template-columns: repeat(2, 1fr); }
+  .icon-btn:nth-child(2) { border-right: none; }
+  .icon-btn:nth-child(3), .icon-btn:nth-child(4) { border-top: 2px solid var(--border); }
+  .icon-btn:nth-child(4) { border-right: none; }
 
   .window { width: 96vw; max-height: 88vh; top: 50%; }
   .window.window-wide { width: 96vw; }
