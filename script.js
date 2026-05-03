@@ -92,6 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── Custom cursor ─────────────────────────────────────────────
 function initCursor() {
+  // Touch devices have no mouse — skip custom cursor entirely
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
   const cursor = document.createElement('div');
   cursor.id = 'custom-cursor';
   const trail = document.createElement('div');

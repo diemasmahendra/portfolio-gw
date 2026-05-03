@@ -66,6 +66,12 @@ body { min-height: 100vh; position: relative; }
 a { color: inherit; text-decoration: none; }
 button { background: none; border: none; cursor: pointer; font-family: var(--font); }
 
+/* Remove 300ms tap delay on touch */
+a, button, [onclick] { touch-action: manipulation; }
+
+/* Prevent long words/URLs from breaking layout */
+.project-desc, .hero-desc, .win-body p, .link-desc { overflow-wrap: break-word; word-break: break-word; }
+
 /* Hide CRT effects */
 .scanlines, .noise { display: none; }
 
@@ -604,17 +610,26 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 .form-status { margin-top: 0.7rem; font-size: 0.8rem; color: #006633; min-height: 1.2em; font-weight: 700; }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — 768px tablet / phone
    ============================================================ */
 @media (max-width: 768px) {
-  .desktop { padding: 0 1rem 3rem; }
+  .desktop {
+    padding: 0 1rem calc(3rem + env(safe-area-inset-bottom, 0px));
+  }
 
-  .topbar { padding: 0.5rem 1rem; margin: 0 -1rem; }
+  .topbar {
+    padding: 0.5rem calc(1rem + env(safe-area-inset-right, 0px))
+             0.5rem calc(1rem + env(safe-area-inset-left, 0px));
+    margin: 0 -1rem;
+  }
 
   .hero { padding: 1.4rem 0 1.5rem; }
   .hero-title { font-size: 2rem; }
   .hero-desc { font-size: 0.88rem; max-width: 100%; }
-  .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 0.75rem 1rem; }
+  .btn-primary, .btn-secondary {
+    width: 100%; text-align: center; padding: 0.85rem 1rem;
+    min-height: 48px; display: flex; align-items: center; justify-content: center;
+  }
   .hero-cta { flex-direction: column; }
 
   .stats-bar { display: grid; grid-template-columns: 1fr 1fr; }
@@ -625,13 +640,22 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
   .stat-item:nth-child(7) { border-right: none; border-bottom: none; }
 
   .icon-grid { grid-template-columns: repeat(2, 1fr); }
+  .icon-btn { min-height: 64px; }
   .icon-btn:nth-child(2) { border-right: none; }
   .icon-btn:nth-child(3), .icon-btn:nth-child(4) { border-top: 2px solid var(--border); }
   .icon-btn:nth-child(4) { border-right: none; }
 
-  .window { width: 96vw; max-height: 88vh; top: 50%; }
+  /* Window: anchored near top so content is reachable without awkward center-scroll */
+  .window {
+    width: 96vw;
+    max-height: min(90dvh, 90vh);
+    top: 5vh;
+    transform: translateX(-50%);
+    animation: win-open-mobile 0.14s ease;
+  }
   .window.window-wide { width: 96vw; }
   .win-body { padding: 1.1rem 1rem; }
+  .win-close { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
 
   .project-grid { grid-template-columns: 1fr; }
 
@@ -639,5 +663,73 @@ button { background: none; border: none; cursor: pointer; font-family: var(--fon
 
   .footer { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
 
-  .form-submit { width: 100%; text-align: center; align-self: stretch; }
+  .form-submit { width: 100%; text-align: center; align-self: stretch; min-height: 48px; }
+}
+
+@keyframes win-open-mobile {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0)    scale(1);    }
+}
+
+/* ============================================================
+   RESPONSIVE — 480px small phones
+   ============================================================ */
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+
+  .hero-title { font-size: 1.75rem; }
+  .hero-eyebrow { margin-bottom: 0.6rem; }
+  .role-badge { font-size: 0.62rem; padding: 0.2em 0.6em; }
+
+  .stat-num { font-size: 1.5rem; }
+  .stat-item { padding: 1rem 0.4rem; }
+  .stat-label { font-size: 0.58rem; }
+
+  .win-body { padding: 1rem 0.85rem; }
+  .project-card { padding: 0.9rem 0.9rem; }
+  .project-card-name { font-size: 0.78rem; }
+
+  .skill-name { width: 95px; font-size: 0.72rem; }
+  .skill-pct { font-size: 0.62rem; width: 30px; }
+
+  .topbar { font-size: 0.62rem; }
+  .clock { font-size: 0.62rem; min-width: 36px; }
+  .lang-current { font-size: 0.6rem; padding: 0.18em 0.45em; }
+
+  .link-item { gap: 0.75rem; }
+}
+
+/* ============================================================
+   TOUCH DEVICES — disable custom cursor, fix iOS input zoom
+   ============================================================ */
+@media (pointer: coarse) {
+  /* JS skips cursor init on touch; restore real pointer here */
+  * { cursor: auto !important; }
+
+  /* Prevent iOS Safari from zooming on input focus (needs ≥16px) */
+  .form-input { font-size: 16px; }
+
+  /* Bigger tap targets */
+  .win-close { min-width: 44px; min-height: 44px; padding: 0.4rem 0.6rem; }
+  .lang-current { padding: 0.35em 0.7em; min-height: 36px; }
+  .lang-menu button { padding: 0.75rem 0.9rem; }
+}
+
+/* ============================================================
+   TOUCH DEVICES — disable sticky :hover states
+   ============================================================ */
+@media (hover: none) {
+  .project-card:hover  { transform: none; box-shadow: var(--shadow); }
+  .btn-primary:hover   { transform: none; box-shadow: var(--shadow); }
+  .btn-secondary:hover { transform: none; box-shadow: var(--shadow); background: var(--surface); }
+  .form-submit:hover   { transform: none; box-shadow: var(--shadow); }
+  .stat-item:hover     { background: transparent; }
+  .icon-btn:hover      { background: var(--surface); }
+
+  /* Use :active for tap feedback instead */
+  .btn-primary:active   { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; }
+  .btn-secondary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; background: var(--yellow); }
+  .icon-btn:active      { background: var(--yellow); }
+  .project-card:active  { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; }
+  .form-submit:active   { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; }
 }
