@@ -1,10 +1,18 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="build" content="i18n-v2" />
-  <title>My Portfolio</title>
+  <title>Muhammad Diemas Mahendra — Programmer &amp; Automation Builder</title>
+  <meta name="description" content="Portfolio of Muhammad Diemas Mahendra — Programmer, Automation Builder, and Trader. Building bots, trading systems, and automation tools." />
+  <meta name="author" content="Muhammad Diemas Mahendra" />
+  <meta property="og:title" content="Muhammad Diemas Mahendra — Portfolio" />
+  <meta property="og:description" content="Programmer, Automation Builder &amp; Trader. Building bots, trading systems, and automation tools that actually work." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Muhammad Diemas Mahendra — Portfolio" />
+  <meta name="twitter:description" content="Programmer, Automation Builder &amp; Trader. Building bots, trading systems, and automation tools that actually work." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +60,7 @@
       </div>
     </header>
     <div class="stats-bar">
-      <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label" data-i18n="statProjects">Projects Built</span></div>
+      <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label" data-i18n="statProjects">Projects Built</span></div>
       <div class="stat-div"></div>
       <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label" data-i18n="statUptime">Bot Uptime</span></div>
       <div class="stat-div"></div>
@@ -62,14 +70,14 @@
     </div>
     <nav class="icon-grid">
       <button class="icon-btn" onclick="openWindow('about')"><span class="icon-label" data-i18n="navAbout">About</span><span class="icon-desc" data-i18n="navAboutDesc">who I am</span></button>
-      <button class="icon-btn" onclick="openWindow('projects')"><span class="icon-label" data-i18n="navProjects">Projects</span><span class="icon-desc" data-i18n="navProjectsDesc">10 projects</span></button>
+      <button class="icon-btn" onclick="openWindow('projects')"><span class="icon-label" data-i18n="navProjects">Projects</span><span class="icon-desc" data-i18n="navProjectsDesc">20 projects</span></button>
       <button class="icon-btn" onclick="openWindow('skills')"><span class="icon-label" data-i18n="navSkills">Skills</span><span class="icon-desc" data-i18n="navSkillsDesc">stack &amp; tools</span></button>
       <button class="icon-btn" onclick="openWindow('contact')"><span class="icon-label" data-i18n="navContact">Contact</span><span class="icon-desc" data-i18n="navContactDesc">reach out</span></button>
     </nav>
     <footer class="footer">
       <span class="tagline" data-i18n="tagline">automate everything. trade the rest.</span>
       <span class="footer-links">
-        <a href="https://t.me/diemasmhndr" target="_blank" class="link">Telegram</a>
+        <a href="https://t.me/diemasmhndr" target="_blank" rel="noopener noreferrer" class="link">Telegram</a>
         <span class="footer-sep">&middot;</span>
         <a href="mailto:rebel@btcidr.dev" class="link">rebel@btcidr.dev</a>
       </span>
@@ -78,7 +86,7 @@
   </div>
 
   <div class="window" id="win-about">
-    <div class="win-titlebar"><span class="win-title" data-i18n="winAbout">ABOUT</span><button class="win-close" onclick="closeWindow('about')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winAbout">ABOUT</span><button class="win-close" onclick="closeWindow('about')" aria-label="Close">&#x2715;</button></div>
     <div class="win-body">
       <div class="info-grid">
         <div class="info-row"><span class="tag" data-i18n="tagStatus">STATUS</span><span data-i18n="statusVal">Online. Always.</span></div>
@@ -93,7 +101,7 @@
   </div>
 
   <div class="window window-wide" id="win-projects">
-    <div class="win-titlebar"><span class="win-title" data-i18n="winProjects">PROJECTS</span><button class="win-close" onclick="closeWindow('projects')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winProjects">PROJECTS</span><button class="win-close" onclick="closeWindow('projects')" aria-label="Close">&#x2715;</button></div>
     <div class="win-body">
       <div class="project-grid">
         <div class="project-card"><div class="project-card-header"><span class="project-num">01</span><span class="project-cat automation" data-i18n="catAutomation">Automation</span></div><div class="project-card-name" data-i18n="projName1">CRYPTO TRADING BOT</div><p class="project-desc" data-i18n="projDesc1">Automated 24/7 crypto trading bot. Executes orders based on technical signals &mdash; MA crossover, RSI, breakout detection. Connected to exchange via API.</p><div class="project-stack"><span class="tag">Python</span><span class="tag">CCXT</span><span class="tag">Binance API</span><span class="tag">Pandas</span></div></div>
@@ -121,7 +129,7 @@
   </div>
 
   <div class="window" id="win-skills">
-    <div class="win-titlebar"><span class="win-title" data-i18n="winSkills">SKILLS</span><button class="win-close" onclick="closeWindow('skills')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winSkills">SKILLS</span><button class="win-close" onclick="closeWindow('skills')" aria-label="Close">&#x2715;</button></div>
     <div class="win-body">
       <div class="skill-group">
         <span class="skill-category" data-i18n="skillCat1">PROGRAMMING</span>
@@ -160,13 +168,20 @@
   </div>
 
   <div class="window" id="win-contact">
-    <div class="win-titlebar"><span class="win-title" data-i18n="winContact">CONTACT</span><button class="win-close" onclick="closeWindow('contact')">&#x2715;</button></div>
+    <div class="win-titlebar"><span class="win-title" data-i18n="winContact">CONTACT</span><button class="win-close" onclick="closeWindow('contact')" aria-label="Close">&#x2715;</button></div>
     <div class="win-body">
       <div class="link-item">
         <span class="link-icon">TG</span>
         <div>
-          <a href="https://t.me/diemasmhndr" target="_blank" class="link">t.me/diemasmhndr</a>
+          <a href="https://t.me/diemasmhndr" target="_blank" rel="noopener noreferrer" class="link">t.me/diemasmhndr</a>
           <p class="link-desc" data-i18n="tgDesc">Reach out directly — commissions, collabs, or just to talk.</p>
+        </div>
+      </div>
+      <div class="link-item">
+        <span class="link-icon">GH</span>
+        <div>
+          <a href="https://github.com/diemasmhndr" target="_blank" rel="noopener noreferrer" class="link">github.com/diemasmhndr</a>
+          <p class="link-desc" data-i18n="ghDesc">Source code, open-source projects, and contributions.</p>
         </div>
       </div>
       <div class="link-item">
@@ -189,6 +204,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

@@ -62,16 +62,17 @@ function handleSubmit(e) {
   const form   = e.target;
   const status = document.getElementById('form-status');
   const btn    = form.querySelector('.form-submit');
+  const t      = LANGS[currentLang] || LANGS['id'];
 
-  btn.textContent = 'TRANSMITTING...';
+  btn.textContent = '...';
   btn.disabled = true;
 
   setTimeout(() => {
     if (status) {
-      status.textContent = '> Message transmitted. I\'ll reply soon.';
+      status.textContent = '> ' + (t.formSent || 'Message transmitted. I\'ll reply soon.');
     }
     form.reset();
-    btn.textContent = 'TRANSMIT';
+    btn.textContent = t.formSend || 'SEND MESSAGE';
     btn.disabled = false;
   }, 1200);
 }
@@ -85,7 +86,7 @@ document.addEventListener('keydown', e => {
 document.addEventListener('DOMContentLoaded', () => {
   updateClock();
   setInterval(updateClock, 1000);
-  setLang('ja');
+  setLang('id');
   initCursor();
 });
 
@@ -154,9 +155,11 @@ const LANGS = {
     aboutP2: 'Bekerja di bidang kripto, saham, dan sistem backend — selalu fokus pada kecepatan dan efisiensi. Jika ada tugas berulang, saya otomatiskan.',
     aboutP3: 'Tersedia untuk komisi: bot, skrip, dan sistem berbasis web.',
     tgDesc: 'Hubungi langsung — komisi, kolaborasi, atau sekadar ngobrol.',
+    ghDesc: 'Source code, proyek open-source, dan kontribusi.',
     emDesc: 'Untuk pertanyaan serius dan komisi proyek.',
     formName: 'NAMA', formEmail: 'EMAIL', formMsg: 'PESAN', formSend: 'KIRIM PESAN',
     formNamePh: 'Nama kamu', formMsgPh: 'Pesan kamu...',
+    formSent: 'Pesan terkirim. Saya akan segera membalas.',
     skillCat1: 'PEMROGRAMAN', skillCat2: 'TRADING & ALGO', skillCat3: 'INFRASTRUKTUR & DEVOPS', skillCat4: 'TOOLS & STACK',
     catAutomation: 'Otomasi', catTrading: 'Alat Trading', catBot: 'Bot', catDevOps: 'DevOps', catBackend: 'Backend', catWeb: 'Web',
     projName1: 'CRYPTO TRADING BOT', projName2: 'BOT PENYARING SAHAM', projName3: 'BOT OTOMASI TELEGRAM', projName4: 'WEB SCRAPER & PIPELINE DATA', projName5: 'DASHBOARD MONITORING SERVER', projName6: 'API RATE LIMITER & PROXY ROTATOR', projName7: 'DISCORD BOT SERBAGUNA', projName8: 'GENERATOR LAPORAN OTOMATIS', projName9: 'ENGINE BACKTESTING', projName10: 'WEBSITE PORTOFOLIO',
@@ -201,9 +204,11 @@ const LANGS = {
     aboutP2: 'Working across crypto, stocks, and backend systems — always focused on speed and efficiency. If there is a repetitive task, I will automate it.',
     aboutP3: 'Available for commissions: bots, scripts, and web-based systems.',
     tgDesc: 'Reach out directly — commissions, collabs, or just to talk.',
+    ghDesc: 'Source code, open-source projects, and contributions.',
     emDesc: 'For serious inquiries and project commissions.',
     formName: 'NAME', formEmail: 'EMAIL', formMsg: 'MESSAGE', formSend: 'SEND MESSAGE',
     formNamePh: 'Your name', formMsgPh: 'Your message...',
+    formSent: 'Message transmitted. I\'ll reply soon.',
     skillCat1: 'PROGRAMMING', skillCat2: 'TRADING & ALGO', skillCat3: 'INFRASTRUCTURE & DEVOPS', skillCat4: 'TOOLS & STACK',
     catAutomation: 'Automation', catTrading: 'Trading Tool', catBot: 'Bot', catDevOps: 'DevOps', catBackend: 'Backend', catWeb: 'Web',
     projName1: 'CRYPTO TRADING BOT', projName2: 'STOCK SCREENER BOT', projName3: 'TELEGRAM AUTOMATION BOT', projName4: 'WEB SCRAPER & DATA PIPELINE', projName5: 'SERVER MONITORING DASHBOARD', projName6: 'API RATE LIMITER & PROXY ROTATOR', projName7: 'DISCORD BOT MULTI-PURPOSE', projName8: 'AUTOMATED REPORT GENERATOR', projName9: 'BACKTESTING ENGINE', projName10: 'PORTFOLIO WEBSITE',
@@ -248,9 +253,11 @@ const LANGS = {
     aboutP2: '暗号資産、株式、バックエンドシステムを横断して作業し、常にスピードと効率に集中しています。繰り返し作業があれば、自動化します。',
     aboutP3: 'ボット、スクリプト、Webシステムの受注制作を承ります。',
     tgDesc: '直接ご連絡ください — 受注、コラボ、またはただの雑談でも。',
+    ghDesc: 'ソースコード、オープンソースプロジェクト、貢献。',
     emDesc: '真剣なお問い合わせやプロジェクトの依頼はこちら。',
     formName: '名前', formEmail: 'メール', formMsg: 'メッセージ', formSend: '送信する',
     formNamePh: 'お名前', formMsgPh: 'メッセージ...',
+    formSent: 'メッセージを送信しました。すぐにご返信します。',
     skillCat1: 'プログラミング', skillCat2: 'トレード & アルゴ', skillCat3: 'インフラ & DevOps', skillCat4: 'ツール & スタック',
     catAutomation: '自動化', catTrading: 'トレードツール', catBot: 'Bot', catDevOps: 'DevOps', catBackend: 'バックエンド', catWeb: 'Web',
     projName1: '暗号資産トレードBot', projName2: '株式スクリーナーBot', projName3: 'Telegram自動化Bot', projName4: 'Webスクレイパー & データパイプライン', projName5: 'サーバー監視ダッシュボード', projName6: 'APIレートリミッター & プロキシローテーター', projName7: '多機能Discordボット', projName8: '自動レポートジェネレーター', projName9: 'バックテストエンジン', projName10: 'ポートフォリオサイト',
@@ -295,9 +302,11 @@ const LANGS = {
     aboutP2: '암호화폐, 주식, 백엔드 시스템 전반에 걸쳐 작업하며 항상 속도와 효율에 집중합니다. 반복 작업이 있다면 자동화합니다.',
     aboutP3: '봇, 스크립트, 웹 기반 시스템 커미션을 받습니다.',
     tgDesc: '직접 연락하세요 — 커미션, 협업, 또는 그냥 대화도 환영합니다.',
+    ghDesc: '소스 코드, 오픈소스 프로젝트 및 기여.',
     emDesc: '진지한 문의 및 프로젝트 커미션은 여기로.',
     formName: '이름', formEmail: '이메일', formMsg: '메시지', formSend: '메시지 보내기',
     formNamePh: '이름을 입력하세요', formMsgPh: '메시지를 입력하세요...',
+    formSent: '메시지가 전송되었습니다. 곧 답변 드리겠습니다.',
     skillCat1: '프로그래밍', skillCat2: '트레이딩 & 알고', skillCat3: '인프라 & DevOps', skillCat4: '툴 & 스택',
     catAutomation: '자동화', catTrading: '트레이딩 툴', catBot: '봇', catDevOps: 'DevOps', catBackend: '백엔드', catWeb: 'Web',
     projName1: '암호화폐 트레이딩 봇', projName2: '주식 스크리너 봇', projName3: '텔레그램 자동화 봇', projName4: '웹 스크레이퍼 & 데이터 파이프라인', projName5: '서버 모니터링 대시보드', projName6: 'API 레이트 리미터 & 프록시 로테이터', projName7: '다목적 디스코드 봇', projName8: '자동 보고서 생성기', projName9: '백테스팅 엔진', projName10: '포트폴리오 웹사이트',
@@ -342,9 +351,11 @@ const LANGS = {
     aboutP2: 'Trabajando en cripto, acciones y sistemas backend — siempre enfocado en velocidad y eficiencia. Si hay una tarea repetitiva, la automatizo.',
     aboutP3: 'Disponible para comisiones: bots, scripts y sistemas web.',
     tgDesc: 'Contáctame directamente — comisiones, colaboraciones o simplemente para hablar.',
+    ghDesc: 'Código fuente, proyectos open-source y contribuciones.',
     emDesc: 'Para consultas serias y comisiones de proyectos.',
     formName: 'NOMBRE', formEmail: 'CORREO', formMsg: 'MENSAJE', formSend: 'ENVIAR MENSAJE',
     formNamePh: 'Tu nombre', formMsgPh: 'Tu mensaje...',
+    formSent: 'Mensaje enviado. Te responderé pronto.',
     skillCat1: 'PROGRAMACIÓN', skillCat2: 'TRADING & ALGO', skillCat3: 'INFRAESTRUCTURA & DEVOPS', skillCat4: 'HERRAMIENTAS & STACK',
     catAutomation: 'Automatización', catTrading: 'Herramienta Trading', catBot: 'Bot', catDevOps: 'DevOps', catBackend: 'Backend', catWeb: 'Web',
     projName1: 'BOT DE TRADING CRIPTO', projName2: 'BOT FILTRADOR DE ACCIONES', projName3: 'BOT AUTOMATIZACIÓN TELEGRAM', projName4: 'SCRAPER WEB & PIPELINE DE DATOS', projName5: 'PANEL DE MONITOREO DE SERVIDOR', projName6: 'LIMITADOR API & ROTADOR DE PROXY', projName7: 'BOT DISCORD MULTIPROPÓSITO', projName8: 'GENERADOR DE INFORMES AUTOMÁTICO', projName9: 'MOTOR DE BACKTESTING', projName10: 'SITIO WEB DE PORTAFOLIO',
@@ -389,9 +400,11 @@ const LANGS = {
     aboutP2: 'أعمل عبر العملات الرقمية والأسهم والأنظمة الخلفية — دائماً مركّز على السرعة والكفاءة. إن وجدت مهمة متكررة، سأؤتمتها.',
     aboutP3: 'متاح للعمل بالعمولة: بوتات، سكريبتات، وأنظمة ويب.',
     tgDesc: 'تواصل مباشرة — عمولات، تعاون، أو مجرد حديث.',
+    ghDesc: 'الكود المصدري، المشاريع مفتوحة المصدر، والمساهمات.',
     emDesc: 'للاستفسارات الجدية وعمولات المشاريع.',
     formName: 'الاسم', formEmail: 'البريد', formMsg: 'الرسالة', formSend: 'إرسال',
     formNamePh: 'اسمك', formMsgPh: 'رسالتك...',
+    formSent: 'تم إرسال رسالتك. سأرد قريباً.',
     skillCat1: 'البرمجة', skillCat2: 'التداول والخوارزميات', skillCat3: 'البنية التحتية والتطوير', skillCat4: 'الأدوات والتقنيات',
     catAutomation: 'أتمتة', catTrading: 'أداة تداول', catBot: 'بوت', catDevOps: 'DevOps', catBackend: 'باك اند', catWeb: 'ويب',
     projName1: 'بوت تداول العملات الرقمية', projName2: 'بوت فلترة الأسهم', projName3: 'بوت أتمتة تيليجرام', projName4: 'كاشط الويب وخط أنابيب البيانات', projName5: 'لوحة مراقبة الخادم', projName6: 'محدد معدل API ومحوّل البروكسي', projName7: 'بوت ديسكورد متعدد الأغراض', projName8: 'مولد التقارير التلقائي', projName9: 'محرك الاختبار التاريخي', projName10: 'موقع المحفظة الشخصية',
@@ -436,9 +449,11 @@ const LANGS = {
     aboutP2: '跨越加密货币、股票和后端系统工作，始终专注于速度和效率。如果有重复性任务，我会将其自动化。',
     aboutP3: '接受委托：机器人、脚本和基于Web的系统。',
     tgDesc: '直接联系 — 委托、合作，或者只是聊天。',
+    ghDesc: '源代码、开源项目和贡献。',
     emDesc: '用于认真的咨询和项目委托。',
     formName: '姓名', formEmail: '邮箱', formMsg: '消息', formSend: '发送消息',
     formNamePh: '你的名字', formMsgPh: '你的消息...',
+    formSent: '消息已发送。我很快会回复你。',
     skillCat1: '编程', skillCat2: '交易与算法', skillCat3: '基础设施与运维', skillCat4: '工具与技术栈',
     catAutomation: '自动化', catTrading: '交易工具', catBot: '机器人', catDevOps: 'DevOps', catBackend: '后端', catWeb: '网页',
     projName1: '加密货币交易机器人', projName2: '股票筛选机器人', projName3: 'Telegram自动化机器人', projName4: '网络爬虫与数据管道', projName5: '服务器监控仪表板', projName6: 'API限速器与代理轮换器', projName7: '多功能Discord机器人', projName8: '自动报告生成器', projName9: '回测引擎', projName10: '作品集网站',
