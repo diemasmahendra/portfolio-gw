@@ -60,6 +60,7 @@ html {
   font-size: 15px;
   line-height: 1.65;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body { min-height: 100vh; position: relative; }
@@ -173,10 +174,17 @@ a, button, [onclick] { touch-action: manipulation; }
    HERO
    ============================================================ */
 .hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 100%;
+  padding: 3rem 0 2.5rem;
+}
+
+.hero-left {
   display: flex;
   flex-direction: column;
-  max-width: 640px;
-  padding: 2rem 0 2rem;
 }
 
 .hero-eyebrow {
@@ -250,6 +258,119 @@ a, button, [onclick] { touch-action: manipulation; }
   background: var(--yellow);
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px #000;
+}
+
+/* ============================================================
+   HERO CARD (right panel — desktop only)
+   ============================================================ */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.hero-card {
+  width: 248px;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.hero-card-bar {
+  background: var(--text);
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hc-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #555;
+  border: 1.5px solid #888;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.hc-label {
+  color: var(--yellow);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-left: auto;
+}
+
+.hero-card-body {
+  padding: 1rem 0.9rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hc-row {
+  display: flex;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  align-items: baseline;
+}
+
+.hc-k {
+  color: var(--text-muted);
+  font-weight: 500;
+  min-width: 58px;
+  flex-shrink: 0;
+}
+
+.hc-v { color: var(--text); font-weight: 700; }
+
+.hc-online {
+  color: #00aa44;
+  font-weight: 800;
+  animation: pulse-online 2.5s ease infinite;
+}
+
+@keyframes pulse-online {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+.hc-yes {
+  background: var(--yellow);
+  border: 1.5px solid var(--border);
+  padding: 0.05em 0.45em;
+  color: var(--text);
+  font-weight: 800;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+.hc-cursor-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.hc-prompt { color: var(--text-dim); font-weight: 700; }
+
+.hc-cursor {
+  display: inline-block;
+  width: 7px; height: 14px;
+  background: var(--text);
+  animation: blink-cursor 1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 /* ============================================================
@@ -623,7 +744,8 @@ a, button, [onclick] { touch-action: manipulation; }
     margin: 0 -1rem;
   }
 
-  .hero { padding: 1.4rem 0 1.5rem; }
+  .hero { grid-template-columns: 1fr; padding: 1.4rem 0 1.5rem; }
+  .hero-right { display: none; }
   .hero-title { font-size: 2rem; }
   .hero-desc { font-size: 0.88rem; max-width: 100%; }
   .btn-primary, .btn-secondary {
@@ -732,4 +854,32 @@ a, button, [onclick] { touch-action: manipulation; }
   .icon-btn:active      { background: var(--yellow); }
   .project-card:active  { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; }
   .form-submit:active   { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; }
+}
+
+/* ============================================================
+   DESKTOP ENHANCEMENTS (≥ 769px)
+   ============================================================ */
+@media (min-width: 769px) {
+  .hero-title { font-size: 3.8rem; }
+  .hero-desc { max-width: 480px; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   FOCUS VISIBLE (keyboard navigation)
+   ============================================================ */
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
 }
