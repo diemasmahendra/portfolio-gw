@@ -86,7 +86,7 @@ document.addEventListener('keydown', e => {
 document.addEventListener('DOMContentLoaded', () => {
   updateClock();
   setInterval(updateClock, 1000);
-  setLang('id');
+  setLang('ja');
   initCursor();
 });
 
